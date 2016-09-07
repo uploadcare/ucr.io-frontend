@@ -27848,9 +27848,66 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	var proxyBase = 'https://fetch-magick.herokuapp.com/m/';
+	var demoImageUrl = 'http://placekitten.com/1000/500';
+	var operations = 'preview/-/crop/100x100/center/';
+	var demoUrl = '' + proxyBase + demoImageUrl + '+' + operations;
+
 	var Demo = function Demo(_ref) {
 		var children = _ref.children;
-		return _react2.default.createElement('div', null);
+		return _react2.default.createElement(
+			'div',
+			null,
+			_react2.default.createElement(
+				'h2',
+				null,
+				'Using UCR'
+			),
+			_react2.default.createElement(
+				'p',
+				null,
+				_react2.default.createElement(
+					'b',
+					null,
+					proxyBase
+				),
+				'http://your-url+',
+				_react2.default.createElement(
+					'b',
+					null,
+					_react2.default.createElement(
+						'a',
+						{ href: 'https://uploadcare.com/documentation/cdn/#image-operations' },
+						':effects'
+					)
+				)
+			),
+			_react2.default.createElement(
+				'h2',
+				null,
+				'Example'
+			),
+			_react2.default.createElement(
+				'p',
+				null,
+				_react2.default.createElement(
+					'a',
+					{ href: demoUrl },
+					_react2.default.createElement(
+						'b',
+						null,
+						proxyBase
+					),
+					demoImageUrl,
+					'+',
+					_react2.default.createElement(
+						'b',
+						null,
+						operations
+					)
+				)
+			)
+		);
 	};
 
 	exports.default = Demo;
