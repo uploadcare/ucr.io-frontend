@@ -80,7 +80,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _routes2 = _interopRequireDefault(_routes);
 
-	var _template = __webpack_require__(246);
+	var _template = __webpack_require__(252);
 
 	var _template2 = _interopRequireDefault(_template);
 
@@ -89,9 +89,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	// Client render (optional):
 	if (typeof document !== 'undefined') {
 		var history = (0, _history.createHistory)();
-		var outlet = document.getElementById('outlet');
+		var root = document.getElementById('root');
 
-		_reactDom2.default.render(_react2.default.createElement(_reactRouter.Router, { history: history, routes: _routes2.default }), outlet);
+		_reactDom2.default.render(_react2.default.createElement(_reactRouter.Router, { history: history, routes: _routes2.default }), root);
 	}
 
 	// Exported static site renderer:
@@ -27553,7 +27553,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _RootPage2 = _interopRequireDefault(_RootPage);
 
-	var _HomePage = __webpack_require__(245);
+	var _HomePage = __webpack_require__(251);
 
 	var _HomePage2 = _interopRequireDefault(_HomePage);
 
@@ -27583,6 +27583,8 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _components = __webpack_require__(245);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -27606,12 +27608,13 @@ return /******/ (function(modules) { // webpackBootstrap
 				return _react2.default.createElement(
 					'div',
 					null,
+					_react2.default.createElement(_components.Header, null),
 					_react2.default.createElement(
-						'p',
+						_components.Body,
 						null,
-						'root'
+						this.props.children
 					),
-					this.props.children
+					_react2.default.createElement(_components.Footer, null)
 				);
 			}
 		}]);
@@ -27628,6 +27631,198 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _Header = __webpack_require__(246);
+
+	Object.defineProperty(exports, 'Header', {
+	  enumerable: true,
+	  get: function get() {
+	    return _interopRequireDefault(_Header).default;
+	  }
+	});
+
+	var _Footer = __webpack_require__(247);
+
+	Object.defineProperty(exports, 'Footer', {
+	  enumerable: true,
+	  get: function get() {
+	    return _interopRequireDefault(_Footer).default;
+	  }
+	});
+
+	var _Body = __webpack_require__(248);
+
+	Object.defineProperty(exports, 'Body', {
+	  enumerable: true,
+	  get: function get() {
+	    return _interopRequireDefault(_Body).default;
+	  }
+	});
+
+	var _Demo = __webpack_require__(249);
+
+	Object.defineProperty(exports, 'Demo', {
+	  enumerable: true,
+	  get: function get() {
+	    return _interopRequireDefault(_Demo).default;
+	  }
+	});
+
+	var _Logo = __webpack_require__(250);
+
+	Object.defineProperty(exports, 'Logo', {
+	  enumerable: true,
+	  get: function get() {
+	    return _interopRequireDefault(_Logo).default;
+	  }
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/***/ },
+/* 246 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _components = __webpack_require__(245);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Header = function Header() {
+		return _react2.default.createElement(
+			'header',
+			null,
+			_react2.default.createElement(_components.Logo, null)
+		);
+	};
+
+	exports.default = Header;
+
+/***/ },
+/* 247 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Footer = function Footer() {
+		return _react2.default.createElement(
+			'footer',
+			null,
+			'Footer'
+		);
+	};
+
+	exports.default = Footer;
+
+/***/ },
+/* 248 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Body = function Body(_ref) {
+		var children = _ref.children;
+		return _react2.default.createElement(
+			'main',
+			null,
+			children
+		);
+	};
+
+	exports.default = Body;
+
+/***/ },
+/* 249 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Demo = function Demo(_ref) {
+		var children = _ref.children;
+		return _react2.default.createElement(
+			'div',
+			null,
+			'demo'
+		);
+	};
+
+	exports.default = Demo;
+
+/***/ },
+/* 250 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Logo = function Logo(_ref) {
+		var children = _ref.children;
+		return _react2.default.createElement(
+			'div',
+			null,
+			'logo'
+		);
+	};
+
+	exports.default = Logo;
+
+/***/ },
+/* 251 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
 
@@ -27636,6 +27831,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
+
+	var _components = __webpack_require__(245);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -27661,9 +27858,58 @@ return /******/ (function(modules) { // webpackBootstrap
 					'div',
 					null,
 					_react2.default.createElement(
+						'h1',
+						null,
+						'Resize and optimise images by using URL commands'
+					),
+					_react2.default.createElement(_components.Demo, null),
+					_react2.default.createElement(
+						'h2',
+						null,
+						'What is UCR?'
+					),
+					_react2.default.createElement(
 						'p',
 						null,
-						'home'
+						'UCR is a simple image resizing proxy that can resize images, change image formats and optimize images for your web site. It is based on Uploadcare CDN API.'
+					),
+					_react2.default.createElement(
+						'h2',
+						null,
+						'How it works'
+					),
+					_react2.default.createElement(
+						'p',
+						null,
+						'It works very much like a CDN. UCR parses the URL, downloads the image and caches it. Then it applies transformations on our servers, and caches the result.'
+					),
+					_react2.default.createElement(
+						'h2',
+						null,
+						'May I have one?'
+					),
+					_react2.default.createElement(
+						'p',
+						null,
+						'Sure, it\'s opensource. Just get a free heroku account and type:'
+					),
+					_react2.default.createElement(
+						'pre',
+						null,
+						_react2.default.createElement(
+							'code',
+							null,
+							'git clone git@github.com:uploadcare/ushare.git',
+							_react2.default.createElement('br', null),
+							'git remote set-url origin my_heroku_repo_url',
+							_react2.default.createElement('br', null),
+							'git push origin master'
+						)
+					),
+					_react2.default.createElement(
+						'p',
+						null,
+						'— and that\'s it!'
 					)
 				);
 			}
@@ -27675,7 +27921,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = HomePage;
 
 /***/ },
-/* 246 */
+/* 252 */
 /***/ function(module, exports) {
 
 	module.exports = function anonymous(locals, escape, include, rethrow) {
@@ -27704,15 +27950,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	    function encode_char(c) {
 	        return _ENCODE_HTML_RULES[c] || c;
 	    }
-	    var __line = 1, __lines = "<html>\r\n<title>UCR</title>\r\n</html>\r\n<body>\r\n<%- html %>\r\n</body>\r\n", __filename = "app\\template.ejs";
+	    var __line = 1, __lines = '<!doctype html>\r\n<html lang="en">\r\n<meta charset="utf-8">\r\n<title>UCR</title>\r\n</html>\r\n<body>\r\n<div id="root"><%- html %></div>\r\n</body>\r\n', __filename = "app\\template.ejs";
 	    try {
 	        var __output = [], __append = __output.push.bind(__output);
 	        with (locals || {}) {
-	            __append("<html>\r\n<title>UCR</title>\r\n</html>\r\n<body>\r\n");
-	            __line = 5;
-	            __append(html);
-	            __append("\r\n</body>\r\n");
+	            __append('<!doctype html>\r\n<html lang="en">\r\n<meta charset="utf-8">\r\n<title>UCR</title>\r\n</html>\r\n<body>\r\n<div id="root">');
 	            __line = 7;
+	            __append(html);
+	            __append("</div>\r\n</body>\r\n");
+	            __line = 9;
 	        }
 	        return __output.join("");
 	    } catch (e) {
