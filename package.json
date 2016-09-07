@@ -7,7 +7,10 @@
     "eslint": "^3.4.0",
     "eslint-config-uploadcare": "^1.0.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint": "^3.4.0",
+    "eslint-config-uploadcare": "^1.0.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
