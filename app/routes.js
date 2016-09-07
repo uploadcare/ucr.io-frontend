@@ -1,10 +1,10 @@
 import React from 'react'
 import {Route, IndexRoute} from 'react-router'
-import RootPage from './src/pages/RootPage'
+import App from './src/App'
 import HomePage from './src/pages/HomePage'
 
 const routes = (
-	<Route path='/' component={RootPage}>
+	<Route path='/' component={App}>
 		<IndexRoute component={HomePage}/>
 	</Route>
 )

@@ -10,9 +10,9 @@ import template from './template.ejs'
 // Client render (optional):
 if (typeof document !== 'undefined') {
 	const history = createHistory()
-	const root = document.getElementById('root')
+	const el = document.getElementById('app')
 
-	ReactDOM.render(<Router history={history} routes={routes}/>, root)
+	ReactDOM.render(<Router history={history} routes={routes}/>, el)
 }
 
 // Exported static site renderer:

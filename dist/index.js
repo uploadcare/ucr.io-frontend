@@ -80,7 +80,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _routes2 = _interopRequireDefault(_routes);
 
-	var _template = __webpack_require__(252);
+	var _template = __webpack_require__(259);
 
 	var _template2 = _interopRequireDefault(_template);
 
@@ -89,9 +89,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	// Client render (optional):
 	if (typeof document !== 'undefined') {
 		var history = (0, _history.createHistory)();
-		var root = document.getElementById('root');
+		var el = document.getElementById('app');
 
-		_reactDom2.default.render(_react2.default.createElement(_reactRouter.Router, { history: history, routes: _routes2.default }), root);
+		_reactDom2.default.render(_react2.default.createElement(_reactRouter.Router, { history: history, routes: _routes2.default }), el);
 	}
 
 	// Exported static site renderer:
@@ -27549,11 +27549,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _reactRouter = __webpack_require__(203);
 
-	var _RootPage = __webpack_require__(244);
+	var _App = __webpack_require__(244);
 
-	var _RootPage2 = _interopRequireDefault(_RootPage);
+	var _App2 = _interopRequireDefault(_App);
 
-	var _HomePage = __webpack_require__(251);
+	var _HomePage = __webpack_require__(258);
 
 	var _HomePage2 = _interopRequireDefault(_HomePage);
 
@@ -27561,7 +27561,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var routes = _react2.default.createElement(
 		_reactRouter.Route,
-		{ path: '/', component: _RootPage2.default },
+		{ path: '/', component: _App2.default },
 		_react2.default.createElement(_reactRouter.IndexRoute, { component: _HomePage2.default })
 	);
 
@@ -27585,6 +27585,8 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _components = __webpack_require__(245);
 
+	__webpack_require__(256);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -27593,16 +27595,16 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var RootPage = function (_Component) {
-		_inherits(RootPage, _Component);
+	var App = function (_Component) {
+		_inherits(App, _Component);
 
-		function RootPage() {
-			_classCallCheck(this, RootPage);
+		function App() {
+			_classCallCheck(this, App);
 
-			return _possibleConstructorReturn(this, (RootPage.__proto__ || Object.getPrototypeOf(RootPage)).apply(this, arguments));
+			return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
 		}
 
-		_createClass(RootPage, [{
+		_createClass(App, [{
 			key: 'render',
 			value: function render() {
 				return _react2.default.createElement(
@@ -27619,10 +27621,10 @@ return /******/ (function(modules) { // webpackBootstrap
 			}
 		}]);
 
-		return RootPage;
+		return App;
 	}(_react.Component);
 
-	exports.default = RootPage;
+	exports.default = App;
 
 /***/ },
 /* 245 */
@@ -27661,7 +27663,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	});
 
-	var _Demo = __webpack_require__(249);
+	var _Demo = __webpack_require__(254);
 
 	Object.defineProperty(exports, 'Demo', {
 	  enumerable: true,
@@ -27670,7 +27672,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	});
 
-	var _Logo = __webpack_require__(250);
+	var _Logo = __webpack_require__(255);
 
 	Object.defineProperty(exports, 'Logo', {
 	  enumerable: true,
@@ -27726,11 +27728,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var Footer = function Footer() {
-		return _react2.default.createElement(
-			'footer',
-			null,
-			'Footer'
-		);
+		return _react2.default.createElement('footer', null);
 	};
 
 	exports.default = Footer;
@@ -27749,13 +27747,21 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _classnames = __webpack_require__(249);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var _Body = __webpack_require__(250);
+
+	var _Body2 = _interopRequireDefault(_Body);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var Body = function Body(_ref) {
 		var children = _ref.children;
 		return _react2.default.createElement(
 			'main',
-			null,
+			{ className: (0, _classnames2.default)(_Body2.default.body) },
 			children
 		);
 	};
@@ -27764,6 +27770,70 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 /* 249 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+	  Copyright (c) 2016 Jed Watson.
+	  Licensed under the MIT License (MIT), see
+	  http://jedwatson.github.io/classnames
+	*/
+	/* global define */
+
+	(function () {
+		'use strict';
+
+		var hasOwn = {}.hasOwnProperty;
+
+		function classNames () {
+			var classes = [];
+
+			for (var i = 0; i < arguments.length; i++) {
+				var arg = arguments[i];
+				if (!arg) continue;
+
+				var argType = typeof arg;
+
+				if (argType === 'string' || argType === 'number') {
+					classes.push(arg);
+				} else if (Array.isArray(arg)) {
+					classes.push(classNames.apply(null, arg));
+				} else if (argType === 'object') {
+					for (var key in arg) {
+						if (hasOwn.call(arg, key) && arg[key]) {
+							classes.push(key);
+						}
+					}
+				}
+			}
+
+			return classes.join(' ');
+		}
+
+		if (typeof module !== 'undefined' && module.exports) {
+			module.exports = classNames;
+		} else if (true) {
+			// register as 'classnames', consistent with npm package name
+			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
+				return classNames;
+			}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+		} else {
+			window.classNames = classNames;
+		}
+	}());
+
+
+/***/ },
+/* 250 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"body":"Body_body__3USDFXac"};
+
+/***/ },
+/* 251 */,
+/* 252 */,
+/* 253 */,
+/* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27780,17 +27850,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var Demo = function Demo(_ref) {
 		var children = _ref.children;
-		return _react2.default.createElement(
-			'div',
-			null,
-			'demo'
-		);
+		return _react2.default.createElement('div', null);
 	};
 
 	exports.default = Demo;
 
 /***/ },
-/* 250 */
+/* 255 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27807,17 +27873,20 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var Logo = function Logo(_ref) {
 		var children = _ref.children;
-		return _react2.default.createElement(
-			'div',
-			null,
-			'logo'
-		);
+		return _react2.default.createElement('div', null);
 	};
 
 	exports.default = Logo;
 
 /***/ },
-/* 251 */
+/* 256 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 257 */,
+/* 258 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27921,7 +27990,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = HomePage;
 
 /***/ },
-/* 252 */
+/* 259 */
 /***/ function(module, exports) {
 
 	module.exports = function anonymous(locals, escape, include, rethrow) {
@@ -27950,15 +28019,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	    function encode_char(c) {
 	        return _ENCODE_HTML_RULES[c] || c;
 	    }
-	    var __line = 1, __lines = '<!doctype html>\r\n<html lang="en">\r\n<meta charset="utf-8">\r\n<title>UCR</title>\r\n</html>\r\n<body>\r\n<div id="root"><%- html %></div>\r\n</body>\r\n', __filename = "app\\template.ejs";
+	    var __line = 1, __lines = '<!doctype html>\r\n<html lang="en">\r\n<meta charset="utf-8">\r\n<title>UCR</title>\r\n<link rel="stylesheet" href="main.css">\r\n</html>\r\n<body>\r\n<div id="app"><%- html %></div>\r\n</body>\r\n', __filename = "app\\template.ejs";
 	    try {
 	        var __output = [], __append = __output.push.bind(__output);
 	        with (locals || {}) {
-	            __append('<!doctype html>\r\n<html lang="en">\r\n<meta charset="utf-8">\r\n<title>UCR</title>\r\n</html>\r\n<body>\r\n<div id="root">');
-	            __line = 7;
+	            __append('<!doctype html>\r\n<html lang="en">\r\n<meta charset="utf-8">\r\n<title>UCR</title>\r\n<link rel="stylesheet" href="main.css">\r\n</html>\r\n<body>\r\n<div id="app">');
+	            __line = 8;
 	            __append(html);
 	            __append("</div>\r\n</body>\r\n");
-	            __line = 9;
+	            __line = 10;
 	        }
 	        return __output.join("");
 	    } catch (e) {

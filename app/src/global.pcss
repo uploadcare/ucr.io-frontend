@@ -1,0 +1,51 @@
+@import './fonts.pcss';
+
+body {
+  display: block;
+  min-width: 100vw;
+  min-height: 100vh;
+  font-size: 16px;
+  line-height: 28px;
+  color: #191919;
+  font-family: 'Gotham Pro', 'HelveticaNeue', 'Helvetica Neue', 'HelveticaNeueRoman', 'HelveticaNeue-Roman', 'Helvetica Neue Roman', 'TeXGyreHeros', 'Helvetica', 'Arial', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #191919;
+}
+
+h1 {
+  font-size: 48px;
+  line-height: 56px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 36px;
+  line-height: 40px;
+}
+
+h3 {
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 1.2px;
+}
+
+h4 {
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 2.9px;
+}
+
+input, textarea, a, button, [contenteditable] {
+  outline: none;
+  transition: color 150ms ease, background-color 150ms ease, border-color 150ms ease;
+}
+
+:global(#app) {
+  display: flex;
+  min-width: 100vw;
+  min-height: 100vh;
+  flex-direction: column;
+  flex-wrap: wrap;
+}

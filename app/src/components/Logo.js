@@ -1,9 +1,7 @@
 import React from 'react'
 
 const Logo = ({children}) => (
-	<div>
-		logo
-	</div>
+	<div></div>
 )
 
 export default Logo
