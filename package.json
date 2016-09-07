@@ -1,0 +1,24 @@
+{
+  "name": "ucr.io",
+  "version": "1.0.0",
+  "description": "Home page of UCR — Proxy Image CDN by Uploadcare",
+  "main": "index.js",
+  "dependencies": {
+    "eslint": "^3.4.0",
+    "eslint-config-uploadcare": "^1.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uploadcare/ucr.io.git"
+  },
+  "author": "Zarema Khalilova",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/uploadcare/ucr.io/issues"
+  },
+  "homepage": "https://github.com/uploadcare/ucr.io#readme"
+}
