@@ -1,11 +1,13 @@
 import React, {Component} from 'react'
+import {Header, Body, Footer} from '../components'
 
 export default class RootPage extends Component {
 	render() {
 		return (
 			<div>
-				<p>root</p>
-				{this.props.children}
+				<Header/>
+				<Body>{this.props.children}</Body>
+				<Footer/>
 			</div>
 		)
 	}

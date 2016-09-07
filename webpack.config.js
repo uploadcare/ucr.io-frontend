@@ -5,9 +5,7 @@ const paths = [
 ]
 
 module.exports = {
-	entry: {
-		main: './app/index.js',
-	},
+	entry: {main: './app/index.js', },
 	output: {
 		filename: 'index.js',
 		path: 'dist',
