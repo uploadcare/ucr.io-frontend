@@ -41,13 +41,15 @@ module.exports = {
 		require('postcss-import')({addDependencyTo: webpack}),
 		require('postcss-custom-media'),
 		require('postcss-nested'),
-		require('postcss-css-variables'),
-		require('postcss-calc'),
+		require('postcss-inline-svg')({path: 'assets/images/'}),
 		require('postcss-assets')({
 			loadPaths: ['assets/'],
 			basePath: 'assets/',
 			cachebuster: true,
 		}),
+		require('postcss-svgo'),
+		require('postcss-css-variables'),
+		require('postcss-calc'),
 		require('autoprefixer'),
 	],
 }
