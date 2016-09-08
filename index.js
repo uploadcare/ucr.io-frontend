@@ -76,7 +76,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _reactRouter = __webpack_require__(203);
 
-	var _routes = __webpack_require__(243);
+	var _components = __webpack_require__(243);
+
+	var _routes = __webpack_require__(271);
 
 	var _routes2 = _interopRequireDefault(_routes);
 
@@ -89,9 +91,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	// Client render (optional):
 	if (typeof document !== 'undefined') {
 		var history = (0, _history.createHistory)();
-		var el = document.getElementById('app');
+		var el = document.getElementById('demo');
 
-		_reactDom2.default.render(_react2.default.createElement(_reactRouter.Router, { history: history, routes: _routes2.default }), el);
+		_reactDom2.default.render(_react2.default.createElement(_components.Demo, null), el);
 	}
 
 	// Exported static site renderer:
@@ -107,7 +109,7 @@ return /******/ (function(modules) { // webpackBootstrap
 			if (!renderProps) return callback(null, 'Not found.');
 
 			callback(null, (0, _template2.default)({
-				html: _server2.default.renderToString(_react2.default.createElement(_reactRouter.RouterContext, renderProps)),
+				html: _server2.default.renderToStaticMarkup(_react2.default.createElement(_reactRouter.RouterContext, renderProps)),
 				assets: locals.assets
 			}));
 		});
@@ -27540,103 +27542,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRouter = __webpack_require__(203);
-
-	var _App = __webpack_require__(244);
-
-	var _App2 = _interopRequireDefault(_App);
-
-	var _HomePage = __webpack_require__(275);
-
-	var _HomePage2 = _interopRequireDefault(_HomePage);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var routes = _react2.default.createElement(
-		_reactRouter.Route,
-		{ path: '/', component: _App2.default },
-		_react2.default.createElement(_reactRouter.IndexRoute, { component: _HomePage2.default })
-	);
-
-	exports.default = routes;
-
-/***/ },
-/* 244 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _components = __webpack_require__(245);
-
-	__webpack_require__(273);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var App = function (_Component) {
-		_inherits(App, _Component);
-
-		function App() {
-			_classCallCheck(this, App);
-
-			return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
-		}
-
-		_createClass(App, [{
-			key: 'render',
-			value: function render() {
-				return _react2.default.createElement(
-					'div',
-					null,
-					_react2.default.createElement(_components.Header, null),
-					_react2.default.createElement(
-						_components.Body,
-						null,
-						this.props.children
-					),
-					_react2.default.createElement(_components.Footer, null)
-				);
-			}
-		}]);
-
-		return App;
-	}(_react.Component);
-
-	exports.default = App;
-
-/***/ },
-/* 245 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
 
-	var _Header = __webpack_require__(246);
+	var _Header = __webpack_require__(244);
 
 	Object.defineProperty(exports, 'Header', {
 	  enumerable: true,
@@ -27645,7 +27554,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	});
 
-	var _Footer = __webpack_require__(247);
+	var _Footer = __webpack_require__(245);
 
 	Object.defineProperty(exports, 'Footer', {
 	  enumerable: true,
@@ -27654,7 +27563,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	});
 
-	var _Body = __webpack_require__(253);
+	var _Body = __webpack_require__(251);
 
 	Object.defineProperty(exports, 'Body', {
 	  enumerable: true,
@@ -27663,7 +27572,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	});
 
-	var _index = __webpack_require__(254);
+	var _index = __webpack_require__(252);
 
 	Object.defineProperty(exports, 'Demo', {
 	  enumerable: true,
@@ -27672,7 +27581,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	});
 
-	var _Logo = __webpack_require__(264);
+	var _Logo = __webpack_require__(262);
 
 	Object.defineProperty(exports, 'Logo', {
 	  enumerable: true,
@@ -27681,7 +27590,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	});
 
-	var _PageHeading = __webpack_require__(267);
+	var _PageHeading = __webpack_require__(265);
 
 	Object.defineProperty(exports, 'PageHeading', {
 	  enumerable: true,
@@ -27690,7 +27599,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	});
 
-	var _PageContent = __webpack_require__(270);
+	var _PageContent = __webpack_require__(268);
 
 	Object.defineProperty(exports, 'PageContent', {
 	  enumerable: true,
@@ -27702,7 +27611,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 246 */
+/* 244 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27715,7 +27624,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _components = __webpack_require__(245);
+	var _components = __webpack_require__(243);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -27730,7 +27639,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = Header;
 
 /***/ },
-/* 247 */
+/* 245 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27743,11 +27652,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _classnames = __webpack_require__(248);
+	var _classnames = __webpack_require__(246);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _Footer = __webpack_require__(249);
+	var _Footer = __webpack_require__(247);
 
 	var _Footer2 = _interopRequireDefault(_Footer);
 
@@ -27769,7 +27678,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = Footer;
 
 /***/ },
-/* 248 */
+/* 246 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -27823,17 +27732,17 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 249 */
+/* 247 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"container":"Footer_container__1kQ3J6LM"};
 
 /***/ },
+/* 248 */,
+/* 249 */,
 /* 250 */,
-/* 251 */,
-/* 252 */,
-/* 253 */
+/* 251 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27860,7 +27769,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = Body;
 
 /***/ },
-/* 254 */
+/* 252 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27869,46 +27778,100 @@ return /******/ (function(modules) { // webpackBootstrap
 		value: true
 	});
 
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _config = __webpack_require__(255);
+	var _config = __webpack_require__(253);
 
 	var _config2 = _interopRequireDefault(_config);
 
-	var _operationsToString = __webpack_require__(256);
+	var _operationsToString = __webpack_require__(254);
 
 	var _operationsToString2 = _interopRequireDefault(_operationsToString);
 
-	var _components = __webpack_require__(257);
+	var _components = __webpack_require__(255);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var proxyBase = _config2.default.proxyBase;
-	var demoImageUrl = _config2.default.demoImageUrl;
-	var demoImageOperations = _config2.default.demoImageOperations;
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var operations = (0, _operationsToString2.default)(demoImageOperations);
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-	var Demo = function Demo(_ref) {
-		var children = _ref.children;
-		return _react2.default.createElement(
-			'div',
-			null,
-			_react2.default.createElement(_components.DemoLink, {
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Demo = function (_Component) {
+		_inherits(Demo, _Component);
+
+		function Demo(props) {
+			_classCallCheck(this, Demo);
+
+			var _this = _possibleConstructorReturn(this, (Demo.__proto__ || Object.getPrototypeOf(Demo)).call(this, props));
+
+			var proxyBase = _config2.default.proxyBase;
+			var demoImageUrl = _config2.default.demoImageUrl;
+			var demoImageOperations = _config2.default.demoImageOperations;
+
+			var operations = (0, _operationsToString2.default)(demoImageOperations);
+
+			_this.state = {
 				proxyBase: proxyBase,
 				demoImageUrl: demoImageUrl,
 				operations: operations
-			}),
-			_react2.default.createElement(_components.DemoImage, { url: '' + proxyBase + demoImageUrl + '+' + operations })
-		);
-	};
+			};
+
+			_this.onClick = _this.onClick.bind(_this);
+			return _this;
+		}
+
+		_createClass(Demo, [{
+			key: 'onClick',
+			value: function onClick() {
+				this.setState({
+					demoImageUrl: 'http://placekitten.com/100/300'
+				});
+			}
+		}, {
+			key: 'componentDidMount',
+			value: function componentDidMount() {
+				console.log('hi');
+			}
+		}, {
+			key: 'render',
+			value: function render() {
+				var _state = this.state;
+				var proxyBase = _state.proxyBase;
+				var demoImageUrl = _state.demoImageUrl;
+				var operations = _state.operations;
+
+
+				return _react2.default.createElement(
+					'div',
+					null,
+					_react2.default.createElement(_components.DemoLink, {
+						proxyBase: proxyBase,
+						demoImageUrl: demoImageUrl,
+						operations: operations
+					}),
+					_react2.default.createElement(_components.DemoImage, { url: '' + proxyBase + demoImageUrl + '+' + operations }),
+					_react2.default.createElement(
+						'button',
+						{ onClick: this.onClick },
+						'Click me'
+					)
+				);
+			}
+		}]);
+
+		return Demo;
+	}(_react.Component);
 
 	exports.default = Demo;
 
 /***/ },
-/* 255 */
+/* 253 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -27930,7 +27893,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 256 */
+/* 254 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -27969,7 +27932,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 257 */
+/* 255 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27978,7 +27941,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 
-	var _DemoLink = __webpack_require__(258);
+	var _DemoLink = __webpack_require__(256);
 
 	Object.defineProperty(exports, 'DemoLink', {
 	  enumerable: true,
@@ -27987,7 +27950,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	});
 
-	var _DemoImage = __webpack_require__(261);
+	var _DemoImage = __webpack_require__(259);
 
 	Object.defineProperty(exports, 'DemoImage', {
 	  enumerable: true,
@@ -27999,7 +27962,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 258 */
+/* 256 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28012,11 +27975,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _classnames = __webpack_require__(248);
+	var _classnames = __webpack_require__(246);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _DemoLink = __webpack_require__(259);
+	var _DemoLink = __webpack_require__(257);
 
 	var _DemoLink2 = _interopRequireDefault(_DemoLink);
 
@@ -28068,15 +28031,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = DemoLink;
 
 /***/ },
-/* 259 */
+/* 257 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"container":"DemoLink_container__1Nnnvh76","heading":"DemoLink_heading__3N7RgneJ","link":"DemoLink_link__29UEOwpY","linkPart":"DemoLink_linkPart__2TIScKYu"};
 
 /***/ },
-/* 260 */,
-/* 261 */
+/* 258 */,
+/* 259 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28089,11 +28052,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _classnames = __webpack_require__(248);
+	var _classnames = __webpack_require__(246);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _DemoImage = __webpack_require__(262);
+	var _DemoImage = __webpack_require__(260);
 
 	var _DemoImage2 = _interopRequireDefault(_DemoImage);
 
@@ -28115,15 +28078,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = DemoImage;
 
 /***/ },
-/* 262 */
+/* 260 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"container":"DemoImage_container__CgapZlcY","image":"DemoImage_image__3g619qF2"};
 
 /***/ },
-/* 263 */,
-/* 264 */
+/* 261 */,
+/* 262 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28136,11 +28099,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _classnames = __webpack_require__(248);
+	var _classnames = __webpack_require__(246);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _Logo = __webpack_require__(265);
+	var _Logo = __webpack_require__(263);
 
 	var _Logo2 = _interopRequireDefault(_Logo);
 
@@ -28158,15 +28121,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = Logo;
 
 /***/ },
-/* 265 */
+/* 263 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"logoContainer":"Logo_logoContainer__1RqAeRTo","logo":"Logo_logo__30kI9BuI"};
 
 /***/ },
-/* 266 */,
-/* 267 */
+/* 264 */,
+/* 265 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28179,11 +28142,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _classnames = __webpack_require__(248);
+	var _classnames = __webpack_require__(246);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _PageHeading = __webpack_require__(268);
+	var _PageHeading = __webpack_require__(266);
 
 	var _PageHeading2 = _interopRequireDefault(_PageHeading);
 
@@ -28201,15 +28164,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = PageHeading;
 
 /***/ },
-/* 268 */
+/* 266 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"pageHeading":"PageHeading_pageHeading__2P1KI3Ee"};
 
 /***/ },
-/* 269 */,
-/* 270 */
+/* 267 */,
+/* 268 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28222,11 +28185,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _classnames = __webpack_require__(248);
+	var _classnames = __webpack_require__(246);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _PageContent = __webpack_require__(271);
+	var _PageContent = __webpack_require__(269);
 
 	var _PageContent2 = _interopRequireDefault(_PageContent);
 
@@ -28244,14 +28207,107 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = PageContent;
 
 /***/ },
-/* 271 */
+/* 269 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"pageContent":"PageContent_pageContent__32etQic7"};
 
 /***/ },
-/* 272 */,
+/* 270 */,
+/* 271 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(203);
+
+	var _App = __webpack_require__(272);
+
+	var _App2 = _interopRequireDefault(_App);
+
+	var _HomePage = __webpack_require__(275);
+
+	var _HomePage2 = _interopRequireDefault(_HomePage);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var routes = _react2.default.createElement(
+		_reactRouter.Route,
+		{ path: '/', component: _App2.default },
+		_react2.default.createElement(_reactRouter.IndexRoute, { component: _HomePage2.default })
+	);
+
+	exports.default = routes;
+
+/***/ },
+/* 272 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _components = __webpack_require__(243);
+
+	__webpack_require__(273);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var App = function (_Component) {
+		_inherits(App, _Component);
+
+		function App() {
+			_classCallCheck(this, App);
+
+			return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+		}
+
+		_createClass(App, [{
+			key: 'render',
+			value: function render() {
+				return _react2.default.createElement(
+					'div',
+					null,
+					_react2.default.createElement(_components.Header, null),
+					_react2.default.createElement(
+						_components.Body,
+						null,
+						this.props.children
+					),
+					_react2.default.createElement(_components.Footer, null)
+				);
+			}
+		}]);
+
+		return App;
+	}(_react.Component);
+
+	exports.default = App;
+
+/***/ },
 /* 273 */
 /***/ function(module, exports) {
 
@@ -28274,11 +28330,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _classnames = __webpack_require__(248);
+	var _classnames = __webpack_require__(246);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _components = __webpack_require__(245);
+	var _components = __webpack_require__(243);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -28310,7 +28366,11 @@ return /******/ (function(modules) { // webpackBootstrap
 						_react2.default.createElement('br', null),
 						'by using URL commands'
 					),
-					_react2.default.createElement(_components.Demo, null),
+					_react2.default.createElement(
+						'div',
+						{ id: 'demo' },
+						_react2.default.createElement(_components.Demo, null)
+					),
 					_react2.default.createElement(
 						_components.PageContent,
 						null,
@@ -28402,15 +28462,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	    function encode_char(c) {
 	        return _ENCODE_HTML_RULES[c] || c;
 	    }
-	    var __line = 1, __lines = '<!doctype html>\r\n<html lang="en">\r\n<meta charset="utf-8">\r\n<title>UCR</title>\r\n<meta name="viewport" content="width=device-width, initial-scale=1" />\r\n\r\n<link rel="apple-touch-icon" sizes="57x57" href="https://ucarecdn.com/assets/images/favicons/apple-touch-icon-57x57.ac85b3e8fddc.png">\r\n<link rel="apple-touch-icon" sizes="60x60" href="https://ucarecdn.com/assets/images/favicons/apple-touch-icon-60x60.3d72cc6c3b19.png">\r\n<link rel="apple-touch-icon" sizes="72x72" href="https://ucarecdn.com/assets/images/favicons/apple-touch-icon-72x72.80914b596af9.png">\r\n<link rel="apple-touch-icon" sizes="76x76" href="https://ucarecdn.com/assets/images/favicons/apple-touch-icon-76x76.14086d029e04.png">\r\n<link rel="apple-touch-icon" sizes="114x114" href="https://ucarecdn.com/assets/images/favicons/apple-touch-icon-114x114.7d5df140ee4f.png">\r\n<link rel="apple-touch-icon" sizes="120x120" href="https://ucarecdn.com/assets/images/favicons/apple-touch-icon-120x120.42f37b826666.png">\r\n<link rel="apple-touch-icon" sizes="144x144" href="https://ucarecdn.com/assets/images/favicons/apple-touch-icon-144x144.c0df64fe7ba5.png">\r\n<link rel="apple-touch-icon" sizes="152x152" href="https://ucarecdn.com/assets/images/favicons/apple-touch-icon-152x152.cf17afc546ce.png">\r\n<link rel="apple-touch-icon" sizes="180x180" href="https://ucarecdn.com/assets/images/favicons/apple-touch-icon-180x180.07a8d576d230.png">\r\n<link rel="icon" type="image/png" href="https://ucarecdn.com/assets/images/favicons/favicon-32x32.c27f006b6232.png" sizes="32x32">\r\n<link rel="icon" type="image/png" href="https://ucarecdn.com/assets/images/favicons/android-chrome-192x192.2279e9807512.png" sizes="192x192">\r\n<link rel="icon" type="image/png" href="https://ucarecdn.com/assets/images/favicons/favicon-96x96.7ff2588e373c.png" sizes="96x96">\r\n<link rel="icon" type="image/png" href="https://ucarecdn.com/assets/images/favicons/favicon-16x16.16da246cfaa6.png" sizes="16x16">\r\n<link rel="manifest" href="https://ucarecdn.com/assets/images/favicons/manifest.39888339e87c.json">\r\n<link rel="mask-icon" href="https://ucarecdn.com/assets/images/favicons/safari-pinned-tab.f5f74da2ffb6.svg" color="#ffd800">\r\n<link rel="shortcut icon" href="https://ucarecdn.com/assets/images/favicons/favicon.d82a823f08a8.ico">\r\n<meta name="msapplication-TileColor" content="#603cba">\r\n<meta name="msapplication-TileImage" content="https://ucarecdn.com/assets/images/favicons/mstile-144x144.1e7522cf4c24.png">\r\n<meta name="msapplication-config" content="https://ucarecdn.com/assets/images/favicons/browserconfig.df0a45215b92.xml">\r\n<meta name="theme-color" content="#ffffff">\r\n\r\n<link rel="stylesheet" href="main.css">\r\n</html>\r\n<body>\r\n<div id="app"><%- html %></div>\r\n</body>\r\n', __filename = "app\\template.ejs";
+	    var __line = 1, __lines = '<!doctype html>\r\n<html lang="en">\r\n<meta charset="utf-8">\r\n<title>UCR</title>\r\n<meta name="viewport" content="width=device-width, initial-scale=1" />\r\n\r\n<link rel="apple-touch-icon" sizes="57x57" href="https://ucarecdn.com/assets/images/favicons/apple-touch-icon-57x57.ac85b3e8fddc.png">\r\n<link rel="apple-touch-icon" sizes="60x60" href="https://ucarecdn.com/assets/images/favicons/apple-touch-icon-60x60.3d72cc6c3b19.png">\r\n<link rel="apple-touch-icon" sizes="72x72" href="https://ucarecdn.com/assets/images/favicons/apple-touch-icon-72x72.80914b596af9.png">\r\n<link rel="apple-touch-icon" sizes="76x76" href="https://ucarecdn.com/assets/images/favicons/apple-touch-icon-76x76.14086d029e04.png">\r\n<link rel="apple-touch-icon" sizes="114x114" href="https://ucarecdn.com/assets/images/favicons/apple-touch-icon-114x114.7d5df140ee4f.png">\r\n<link rel="apple-touch-icon" sizes="120x120" href="https://ucarecdn.com/assets/images/favicons/apple-touch-icon-120x120.42f37b826666.png">\r\n<link rel="apple-touch-icon" sizes="144x144" href="https://ucarecdn.com/assets/images/favicons/apple-touch-icon-144x144.c0df64fe7ba5.png">\r\n<link rel="apple-touch-icon" sizes="152x152" href="https://ucarecdn.com/assets/images/favicons/apple-touch-icon-152x152.cf17afc546ce.png">\r\n<link rel="apple-touch-icon" sizes="180x180" href="https://ucarecdn.com/assets/images/favicons/apple-touch-icon-180x180.07a8d576d230.png">\r\n<link rel="icon" type="image/png" href="https://ucarecdn.com/assets/images/favicons/favicon-32x32.c27f006b6232.png" sizes="32x32">\r\n<link rel="icon" type="image/png" href="https://ucarecdn.com/assets/images/favicons/android-chrome-192x192.2279e9807512.png" sizes="192x192">\r\n<link rel="icon" type="image/png" href="https://ucarecdn.com/assets/images/favicons/favicon-96x96.7ff2588e373c.png" sizes="96x96">\r\n<link rel="icon" type="image/png" href="https://ucarecdn.com/assets/images/favicons/favicon-16x16.16da246cfaa6.png" sizes="16x16">\r\n<link rel="manifest" href="https://ucarecdn.com/assets/images/favicons/manifest.39888339e87c.json">\r\n<link rel="mask-icon" href="https://ucarecdn.com/assets/images/favicons/safari-pinned-tab.f5f74da2ffb6.svg" color="#ffd800">\r\n<link rel="shortcut icon" href="https://ucarecdn.com/assets/images/favicons/favicon.d82a823f08a8.ico">\r\n<meta name="msapplication-TileColor" content="#603cba">\r\n<meta name="msapplication-TileImage" content="https://ucarecdn.com/assets/images/favicons/mstile-144x144.1e7522cf4c24.png">\r\n<meta name="msapplication-config" content="https://ucarecdn.com/assets/images/favicons/browserconfig.df0a45215b92.xml">\r\n<meta name="theme-color" content="#ffffff">\r\n\r\n<link rel="stylesheet" href="main.css">\r\n</html>\r\n<body>\r\n<div id="app"><%- html %></div>\r\n<script src="index.js"></script>\r\n</body>\r\n', __filename = "app\\template.ejs";
 	    try {
 	        var __output = [], __append = __output.push.bind(__output);
 	        with (locals || {}) {
 	            __append('<!doctype html>\r\n<html lang="en">\r\n<meta charset="utf-8">\r\n<title>UCR</title>\r\n<meta name="viewport" content="width=device-width, initial-scale=1" />\r\n\r\n<link rel="apple-touch-icon" sizes="57x57" href="https://ucarecdn.com/assets/images/favicons/apple-touch-icon-57x57.ac85b3e8fddc.png">\r\n<link rel="apple-touch-icon" sizes="60x60" href="https://ucarecdn.com/assets/images/favicons/apple-touch-icon-60x60.3d72cc6c3b19.png">\r\n<link rel="apple-touch-icon" sizes="72x72" href="https://ucarecdn.com/assets/images/favicons/apple-touch-icon-72x72.80914b596af9.png">\r\n<link rel="apple-touch-icon" sizes="76x76" href="https://ucarecdn.com/assets/images/favicons/apple-touch-icon-76x76.14086d029e04.png">\r\n<link rel="apple-touch-icon" sizes="114x114" href="https://ucarecdn.com/assets/images/favicons/apple-touch-icon-114x114.7d5df140ee4f.png">\r\n<link rel="apple-touch-icon" sizes="120x120" href="https://ucarecdn.com/assets/images/favicons/apple-touch-icon-120x120.42f37b826666.png">\r\n<link rel="apple-touch-icon" sizes="144x144" href="https://ucarecdn.com/assets/images/favicons/apple-touch-icon-144x144.c0df64fe7ba5.png">\r\n<link rel="apple-touch-icon" sizes="152x152" href="https://ucarecdn.com/assets/images/favicons/apple-touch-icon-152x152.cf17afc546ce.png">\r\n<link rel="apple-touch-icon" sizes="180x180" href="https://ucarecdn.com/assets/images/favicons/apple-touch-icon-180x180.07a8d576d230.png">\r\n<link rel="icon" type="image/png" href="https://ucarecdn.com/assets/images/favicons/favicon-32x32.c27f006b6232.png" sizes="32x32">\r\n<link rel="icon" type="image/png" href="https://ucarecdn.com/assets/images/favicons/android-chrome-192x192.2279e9807512.png" sizes="192x192">\r\n<link rel="icon" type="image/png" href="https://ucarecdn.com/assets/images/favicons/favicon-96x96.7ff2588e373c.png" sizes="96x96">\r\n<link rel="icon" type="image/png" href="https://ucarecdn.com/assets/images/favicons/favicon-16x16.16da246cfaa6.png" sizes="16x16">\r\n<link rel="manifest" href="https://ucarecdn.com/assets/images/favicons/manifest.39888339e87c.json">\r\n<link rel="mask-icon" href="https://ucarecdn.com/assets/images/favicons/safari-pinned-tab.f5f74da2ffb6.svg" color="#ffd800">\r\n<link rel="shortcut icon" href="https://ucarecdn.com/assets/images/favicons/favicon.d82a823f08a8.ico">\r\n<meta name="msapplication-TileColor" content="#603cba">\r\n<meta name="msapplication-TileImage" content="https://ucarecdn.com/assets/images/favicons/mstile-144x144.1e7522cf4c24.png">\r\n<meta name="msapplication-config" content="https://ucarecdn.com/assets/images/favicons/browserconfig.df0a45215b92.xml">\r\n<meta name="theme-color" content="#ffffff">\r\n\r\n<link rel="stylesheet" href="main.css">\r\n</html>\r\n<body>\r\n<div id="app">');
 	            __line = 31;
 	            __append(html);
-	            __append("</div>\r\n</body>\r\n");
-	            __line = 33;
+	            __append('</div>\r\n<script src="index.js"></script>\r\n</body>\r\n');
+	            __line = 34;
 	        }
 	        return __output.join("");
 	    } catch (e) {
