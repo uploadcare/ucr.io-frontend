@@ -22,6 +22,9 @@
     "eslint-plugin-react": "^6.2.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "postcss-assets": "^4.1.0",
+    "postcss-calc": "^5.3.1",
+    "postcss-css-variables": "^0.5.2",
+    "postcss-custom-media": "^5.0.1",
     "postcss-import": "^8.1.2",
     "postcss-loader": "^0.11.1",
     "postcss-nested": "^1.0.0",
@@ -34,7 +37,7 @@
     "webpack-dev-server": "^1.15.1"
   },
   "scripts": {
-	"start": "browser-sync start --server dist --files dist",
+    "start": "browser-sync start --server dist --files dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

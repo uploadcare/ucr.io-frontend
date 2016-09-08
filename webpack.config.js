@@ -39,7 +39,10 @@ module.exports = {
 	},
 	postcss: [
 		require('postcss-import')({addDependencyTo: webpack}),
+		require('postcss-custom-media'),
 		require('postcss-nested'),
+		require('postcss-css-variables'),
+		require('postcss-calc'),
 		require('postcss-assets')({
 			loadPaths: ['assets/'],
 			basePath: 'assets/',

@@ -1,44 +1,83 @@
 @import './fonts.pcss';
+@import './config.pcss';
 
 body {
   display: block;
   min-height: 100vh;
   font-size: 16px;
-  line-height: 28px;
-  color: #191919;
+  line-height: 1.5;
+  color: var(--color-gray--90);
   font-family: 'Gotham Pro', 'HelveticaNeue', 'Helvetica Neue', 'HelveticaNeueRoman', 'HelveticaNeue-Roman', 'Helvetica Neue Roman', 'TeXGyreHeros', 'Helvetica', 'Arial', sans-serif;
+
+  @media (--medium-viewport) {
+	line-height: 1.75;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: #191919;
+  color: var(--color-gray--90);
+  line-height: 1.5;
+
+  @media (--medium-viewport) {
+	line-height: 1.75;
+  }
 }
 
 h1 {
-  font-size: 48px;
-  line-height: 56px;
+  font-size: 24px;
   text-align: center;
+
+  @media (--medium-viewport) {
+	font-size: 48px;
+  }
 }
 
 h2 {
-  font-size: 36px;
-  line-height: 40px;
+  font-size: 20px;
+
+  @media (--medium-viewport) {
+	font-size: 36px;
+  }
 }
 
 h3 {
-  font-size: 24px;
-  line-height: 32px;
+  font-size: 16px;
   letter-spacing: 1.2px;
+
+  @media (--medium-viewport) {
+	font-size: 24px;
+  }
+}
+
+h4,
+h5,
+h6 {
+  text-transform: uppercase;
+  letter-spacing: 2.9px;
 }
 
 h4 {
   font-size: 14px;
-  line-height: 24px;
-  letter-spacing: 2.9px;
+
+  @media (--medium-viewport) {
+	font-size: 16px;
+  }
 }
 
-input, textarea, a, button, [contenteditable] {
-  outline: none;
-  transition: color 150ms ease, background-color 150ms ease, border-color 150ms ease;
+h5 {
+  font-size: 12px;
+
+  @media (--medium-viewport) {
+	font-size: 14px;
+  }
+}
+
+h6 {
+  font-size: 10px;
+
+  @media (--medium-viewport) {
+	font-size: 12px;
+  }
 }
 
 :global(#app) {
