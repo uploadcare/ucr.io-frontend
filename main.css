@@ -182,7 +182,6 @@ html, body {
 
 body {
   display: block;
-  min-width: 100vw;
   min-height: 100vh;
   font-size: 16px;
   line-height: 1.5;
