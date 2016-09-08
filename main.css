@@ -318,7 +318,7 @@ a {
   padding: 16px;
   background-color: #191919;
   color: #aab2bf;
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 
 #app {
