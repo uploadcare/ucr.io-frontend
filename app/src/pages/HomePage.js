@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import cn from 'classnames'
 import {Demo, PageHeading, PageContent} from '../components'
 
 export default class HomePage extends Component {
@@ -23,7 +24,7 @@ export default class HomePage extends Component {
 					<p>
 						Sure, it's opensource. Just get a free heroku account and type:
 					</p>
-					<pre>
+					<pre className={cn('code')}>
 						<code>
 							git clone git@github.com:uploadcare/ushare.git<br/>
 							git remote set-url origin my_heroku_repo_url<br/>
