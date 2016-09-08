@@ -80,7 +80,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _routes2 = _interopRequireDefault(_routes);
 
-	var _template = __webpack_require__(259);
+	var _template = __webpack_require__(276);
 
 	var _template2 = _interopRequireDefault(_template);
 
@@ -27553,7 +27553,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _App2 = _interopRequireDefault(_App);
 
-	var _HomePage = __webpack_require__(258);
+	var _HomePage = __webpack_require__(275);
 
 	var _HomePage2 = _interopRequireDefault(_HomePage);
 
@@ -27585,7 +27585,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _components = __webpack_require__(245);
 
-	__webpack_require__(256);
+	__webpack_require__(273);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -27654,7 +27654,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	});
 
-	var _Body = __webpack_require__(248);
+	var _Body = __webpack_require__(253);
 
 	Object.defineProperty(exports, 'Body', {
 	  enumerable: true,
@@ -27663,21 +27663,39 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	});
 
-	var _Demo = __webpack_require__(254);
+	var _index = __webpack_require__(254);
 
 	Object.defineProperty(exports, 'Demo', {
 	  enumerable: true,
 	  get: function get() {
-	    return _interopRequireDefault(_Demo).default;
+	    return _interopRequireDefault(_index).default;
 	  }
 	});
 
-	var _Logo = __webpack_require__(255);
+	var _Logo = __webpack_require__(264);
 
 	Object.defineProperty(exports, 'Logo', {
 	  enumerable: true,
 	  get: function get() {
 	    return _interopRequireDefault(_Logo).default;
+	  }
+	});
+
+	var _PageHeading = __webpack_require__(267);
+
+	Object.defineProperty(exports, 'PageHeading', {
+	  enumerable: true,
+	  get: function get() {
+	    return _interopRequireDefault(_PageHeading).default;
+	  }
+	});
+
+	var _PageContent = __webpack_require__(270);
+
+	Object.defineProperty(exports, 'PageContent', {
+	  enumerable: true,
+	  get: function get() {
+	    return _interopRequireDefault(_PageContent).default;
 	  }
 	});
 
@@ -27725,51 +27743,33 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _classnames = __webpack_require__(248);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var _Footer = __webpack_require__(249);
+
+	var _Footer2 = _interopRequireDefault(_Footer);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var Footer = function Footer() {
-		return _react2.default.createElement('footer', null);
+		return _react2.default.createElement(
+			'footer',
+			{ className: (0, _classnames2.default)(_Footer2.default.container) },
+			'powered by ',
+			_react2.default.createElement(
+				'a',
+				{ href: 'http://uploadcare.com' },
+				'uploadcare'
+			)
+		);
 	};
 
 	exports.default = Footer;
 
 /***/ },
 /* 248 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _classnames = __webpack_require__(249);
-
-	var _classnames2 = _interopRequireDefault(_classnames);
-
-	var _Body = __webpack_require__(250);
-
-	var _Body2 = _interopRequireDefault(_Body);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var Body = function Body(_ref) {
-		var children = _ref.children;
-		return _react2.default.createElement(
-			'main',
-			{ className: (0, _classnames2.default)(_Body2.default.body) },
-			children
-		);
-	};
-
-	exports.default = Body;
-
-/***/ },
-/* 249 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -27823,16 +27823,43 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 250 */
+/* 249 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"body":"Body_body__3USDFXac"};
+	module.exports = {"container":"Footer_container__1kQ3J6LM"};
 
 /***/ },
+/* 250 */,
 /* 251 */,
 /* 252 */,
-/* 253 */,
+/* 253 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Body = function Body(_ref) {
+		var children = _ref.children;
+		return _react2.default.createElement(
+			'main',
+			null,
+			children
+		);
+	};
+
+	exports.default = Body;
+
+/***/ },
 /* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -27846,67 +27873,35 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _config = __webpack_require__(255);
+
+	var _config2 = _interopRequireDefault(_config);
+
+	var _operationsToString = __webpack_require__(256);
+
+	var _operationsToString2 = _interopRequireDefault(_operationsToString);
+
+	var _components = __webpack_require__(257);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var proxyBase = 'https://fetch-magick.herokuapp.com/m/';
-	var demoImageUrl = 'http://placekitten.com/1000/500';
-	var operations = 'preview/-/crop/100x100/center/';
-	var demoUrl = '' + proxyBase + demoImageUrl + '+' + operations;
+	var proxyBase = _config2.default.proxyBase;
+	var demoImageUrl = _config2.default.demoImageUrl;
+	var demoImageOperations = _config2.default.demoImageOperations;
+
+	var operations = (0, _operationsToString2.default)(demoImageOperations);
 
 	var Demo = function Demo(_ref) {
 		var children = _ref.children;
 		return _react2.default.createElement(
 			'div',
 			null,
-			_react2.default.createElement(
-				'h2',
-				null,
-				'Using UCR'
-			),
-			_react2.default.createElement(
-				'p',
-				null,
-				_react2.default.createElement(
-					'b',
-					null,
-					proxyBase
-				),
-				'http://your-url+',
-				_react2.default.createElement(
-					'b',
-					null,
-					_react2.default.createElement(
-						'a',
-						{ href: 'https://uploadcare.com/documentation/cdn/#image-operations' },
-						':effects'
-					)
-				)
-			),
-			_react2.default.createElement(
-				'h2',
-				null,
-				'Example'
-			),
-			_react2.default.createElement(
-				'p',
-				null,
-				_react2.default.createElement(
-					'a',
-					{ href: demoUrl },
-					_react2.default.createElement(
-						'b',
-						null,
-						proxyBase
-					),
-					demoImageUrl,
-					'+',
-					_react2.default.createElement(
-						'b',
-						null,
-						operations
-					)
-				)
-			)
+			_react2.default.createElement(_components.DemoLink, {
+				proxyBase: proxyBase,
+				demoImageUrl: demoImageUrl,
+				operations: operations
+			}),
+			_react2.default.createElement(_components.DemoImage, { url: '' + proxyBase + demoImageUrl + '+' + operations })
 		);
 	};
 
@@ -27914,6 +27909,97 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 /* 255 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	exports.default = {
+		proxyBase: 'https://fetch-magick.herokuapp.com/m/',
+		demoImageUrl: 'http://placekitten.com/1000/500',
+		demoImageOperations: [{
+			name: 'preview'
+		}, {
+			name: 'resize',
+			value: 'x300'
+		}, {
+			name: 'enhance'
+		}]
+	};
+
+/***/ },
+/* 256 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (operations) {
+		var result = '';
+
+		operations.map(function (operation) {
+			var name = operation.name;
+			var value = operation.value;
+			var more = operation.more;
+
+
+			if (result.length) {
+				result += '-/';
+			}
+
+			result += name;
+
+			if (value !== undefined) {
+				result += '/' + value;
+			}
+
+			if (more !== undefined) {
+				result += '/' + more;
+			}
+
+			result += '/';
+		});
+
+		return result;
+	};
+
+/***/ },
+/* 257 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _DemoLink = __webpack_require__(258);
+
+	Object.defineProperty(exports, 'DemoLink', {
+	  enumerable: true,
+	  get: function get() {
+	    return _interopRequireDefault(_DemoLink).default;
+	  }
+	});
+
+	var _DemoImage = __webpack_require__(261);
+
+	Object.defineProperty(exports, 'DemoImage', {
+	  enumerable: true,
+	  get: function get() {
+	    return _interopRequireDefault(_DemoImage).default;
+	  }
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/***/ },
+/* 258 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27926,24 +28012,254 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _classnames = __webpack_require__(248);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var _DemoLink = __webpack_require__(259);
+
+	var _DemoLink2 = _interopRequireDefault(_DemoLink);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var DemoLink = function DemoLink(_ref) {
+		var proxyBase = _ref.proxyBase;
+		var demoImageUrl = _ref.demoImageUrl;
+		var operations = _ref.operations;
+		return _react2.default.createElement(
+			'div',
+			{ className: (0, _classnames2.default)(_DemoLink2.default.container) },
+			_react2.default.createElement(
+				'h2',
+				{ className: (0, _classnames2.default)(_DemoLink2.default.heading) },
+				'UCR link for your image:'
+			),
+			_react2.default.createElement(
+				'a',
+				{ href: '' + proxyBase + demoImageUrl + '+' + operations, className: (0, _classnames2.default)(_DemoLink2.default.link) },
+				_react2.default.createElement(
+					'span',
+					{ className: (0, _classnames2.default)(_DemoLink2.default.linkPart) },
+					_react2.default.createElement(
+						'b',
+						null,
+						proxyBase
+					)
+				),
+				_react2.default.createElement(
+					'span',
+					{ className: (0, _classnames2.default)(_DemoLink2.default.linkPart) },
+					demoImageUrl
+				),
+				_react2.default.createElement(
+					'span',
+					{ className: (0, _classnames2.default)(_DemoLink2.default.linkPart) },
+					'+',
+					_react2.default.createElement(
+						'b',
+						null,
+						operations
+					)
+				)
+			)
+		);
+	};
+
+	exports.default = DemoLink;
+
+/***/ },
+/* 259 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"container":"DemoLink_container__1Nnnvh76","heading":"DemoLink_heading__3N7RgneJ","link":"DemoLink_link__29UEOwpY","linkPart":"DemoLink_linkPart__2TIScKYu"};
+
+/***/ },
+/* 260 */,
+/* 261 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _classnames = __webpack_require__(248);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var _DemoImage = __webpack_require__(262);
+
+	var _DemoImage2 = _interopRequireDefault(_DemoImage);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var DemoImage = function DemoImage(_ref) {
+		var url = _ref.url;
+		return _react2.default.createElement(
+			'div',
+			{ className: (0, _classnames2.default)(_DemoImage2.default.container) },
+			_react2.default.createElement(
+				'a',
+				{ href: url },
+				_react2.default.createElement('img', { src: url, alt: '', className: (0, _classnames2.default)(_DemoImage2.default.image) })
+			)
+		);
+	};
+
+	exports.default = DemoImage;
+
+/***/ },
+/* 262 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"container":"DemoImage_container__CgapZlcY","image":"DemoImage_image__3g619qF2"};
+
+/***/ },
+/* 263 */,
+/* 264 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _classnames = __webpack_require__(248);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var _Logo = __webpack_require__(265);
+
+	var _Logo2 = _interopRequireDefault(_Logo);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var Logo = function Logo(_ref) {
 		var children = _ref.children;
-		return _react2.default.createElement('div', null);
+		return _react2.default.createElement(
+			'div',
+			{ className: (0, _classnames2.default)(_Logo2.default.logoContainer) },
+			_react2.default.createElement('a', { href: 'http://ucr.io', className: (0, _classnames2.default)(_Logo2.default.logo) })
+		);
 	};
 
 	exports.default = Logo;
 
 /***/ },
-/* 256 */
+/* 265 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"logoContainer":"Logo_logoContainer__1RqAeRTo","logo":"Logo_logo__30kI9BuI"};
+
+/***/ },
+/* 266 */,
+/* 267 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _classnames = __webpack_require__(248);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var _PageHeading = __webpack_require__(268);
+
+	var _PageHeading2 = _interopRequireDefault(_PageHeading);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var PageHeading = function PageHeading(_ref) {
+		var children = _ref.children;
+		return _react2.default.createElement(
+			'h1',
+			{ className: (0, _classnames2.default)(_PageHeading2.default.pageHeading) },
+			children
+		);
+	};
+
+	exports.default = PageHeading;
+
+/***/ },
+/* 268 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"pageHeading":"PageHeading_pageHeading__2P1KI3Ee"};
+
+/***/ },
+/* 269 */,
+/* 270 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _classnames = __webpack_require__(248);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var _PageContent = __webpack_require__(271);
+
+	var _PageContent2 = _interopRequireDefault(_PageContent);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var PageContent = function PageContent(_ref) {
+		var children = _ref.children;
+		return _react2.default.createElement(
+			'div',
+			{ className: (0, _classnames2.default)(_PageContent2.default.pageContent) },
+			children
+		);
+	};
+
+	exports.default = PageContent;
+
+/***/ },
+/* 271 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"pageContent":"PageContent_pageContent__32etQic7"};
+
+/***/ },
+/* 272 */,
+/* 273 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 257 */,
-/* 258 */
+/* 274 */,
+/* 275 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27957,6 +28273,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
+
+	var _classnames = __webpack_require__(248);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
 
 	var _components = __webpack_require__(245);
 
@@ -27984,58 +28304,64 @@ return /******/ (function(modules) { // webpackBootstrap
 					'div',
 					null,
 					_react2.default.createElement(
-						'h1',
+						_components.PageHeading,
 						null,
-						'Resize and optimise images by using URL commands'
+						'Resize and optimise images',
+						_react2.default.createElement('br', null),
+						'by using URL commands'
 					),
 					_react2.default.createElement(_components.Demo, null),
 					_react2.default.createElement(
-						'h2',
-						null,
-						'What is UCR?'
-					),
-					_react2.default.createElement(
-						'p',
-						null,
-						'UCR is a simple image resizing proxy that can resize images, change image formats and optimize images for your web site. It is based on Uploadcare CDN API.'
-					),
-					_react2.default.createElement(
-						'h2',
-						null,
-						'How it works'
-					),
-					_react2.default.createElement(
-						'p',
-						null,
-						'It works very much like a CDN. UCR parses the URL, downloads the image and caches it. Then it applies transformations on our servers, and caches the result.'
-					),
-					_react2.default.createElement(
-						'h2',
-						null,
-						'May I have one?'
-					),
-					_react2.default.createElement(
-						'p',
-						null,
-						'Sure, it\'s opensource. Just get a free heroku account and type:'
-					),
-					_react2.default.createElement(
-						'pre',
+						_components.PageContent,
 						null,
 						_react2.default.createElement(
-							'code',
+							'h2',
 							null,
-							'git clone git@github.com:uploadcare/ushare.git',
-							_react2.default.createElement('br', null),
-							'git remote set-url origin my_heroku_repo_url',
-							_react2.default.createElement('br', null),
-							'git push origin master'
+							'What is UCR?'
+						),
+						_react2.default.createElement(
+							'p',
+							null,
+							'UCR is a simple image resizing proxy that can resize images, change image formats and optimize images for your web site. It is based on Uploadcare CDN API.'
+						),
+						_react2.default.createElement(
+							'h2',
+							null,
+							'How it works'
+						),
+						_react2.default.createElement(
+							'p',
+							null,
+							'It works very much like a CDN. UCR parses the URL, downloads the image and caches it. Then it applies transformations on our servers, and caches the result.'
+						),
+						_react2.default.createElement(
+							'h2',
+							null,
+							'May I have one?'
+						),
+						_react2.default.createElement(
+							'p',
+							null,
+							'Sure, it\'s opensource. Just get a free heroku account and type:'
+						),
+						_react2.default.createElement(
+							'pre',
+							{ className: (0, _classnames2.default)('code') },
+							_react2.default.createElement(
+								'code',
+								null,
+								'git clone git@github.com:uploadcare/ushare.git',
+								_react2.default.createElement('br', null),
+								'git remote set-url origin my_heroku_repo_url',
+								_react2.default.createElement('br', null),
+								'git push origin master'
+							)
+						),
+						_react2.default.createElement(
+							'p',
+							null,
+							'— and that\'s it!'
 						)
-					),
-					_react2.default.createElement(
-						'p',
-						null,
-						'— and that\'s it!'
 					)
 				);
 			}
@@ -28047,7 +28373,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = HomePage;
 
 /***/ },
-/* 259 */
+/* 276 */
 /***/ function(module, exports) {
 
 	module.exports = function anonymous(locals, escape, include, rethrow) {
@@ -28076,15 +28402,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	    function encode_char(c) {
 	        return _ENCODE_HTML_RULES[c] || c;
 	    }
-	    var __line = 1, __lines = '<!doctype html>\r\n<html lang="en">\r\n<meta charset="utf-8">\r\n<title>UCR</title>\r\n<link rel="stylesheet" href="main.css">\r\n</html>\r\n<body>\r\n<div id="app"><%- html %></div>\r\n</body>\r\n', __filename = "app\\template.ejs";
+	    var __line = 1, __lines = '<!doctype html>\r\n<html lang="en">\r\n<meta charset="utf-8">\r\n<title>UCR</title>\r\n<meta name="viewport" content="width=device-width, initial-scale=1" />\r\n\r\n<link rel="apple-touch-icon" sizes="57x57" href="https://ucarecdn.com/assets/images/favicons/apple-touch-icon-57x57.ac85b3e8fddc.png">\r\n<link rel="apple-touch-icon" sizes="60x60" href="https://ucarecdn.com/assets/images/favicons/apple-touch-icon-60x60.3d72cc6c3b19.png">\r\n<link rel="apple-touch-icon" sizes="72x72" href="https://ucarecdn.com/assets/images/favicons/apple-touch-icon-72x72.80914b596af9.png">\r\n<link rel="apple-touch-icon" sizes="76x76" href="https://ucarecdn.com/assets/images/favicons/apple-touch-icon-76x76.14086d029e04.png">\r\n<link rel="apple-touch-icon" sizes="114x114" href="https://ucarecdn.com/assets/images/favicons/apple-touch-icon-114x114.7d5df140ee4f.png">\r\n<link rel="apple-touch-icon" sizes="120x120" href="https://ucarecdn.com/assets/images/favicons/apple-touch-icon-120x120.42f37b826666.png">\r\n<link rel="apple-touch-icon" sizes="144x144" href="https://ucarecdn.com/assets/images/favicons/apple-touch-icon-144x144.c0df64fe7ba5.png">\r\n<link rel="apple-touch-icon" sizes="152x152" href="https://ucarecdn.com/assets/images/favicons/apple-touch-icon-152x152.cf17afc546ce.png">\r\n<link rel="apple-touch-icon" sizes="180x180" href="https://ucarecdn.com/assets/images/favicons/apple-touch-icon-180x180.07a8d576d230.png">\r\n<link rel="icon" type="image/png" href="https://ucarecdn.com/assets/images/favicons/favicon-32x32.c27f006b6232.png" sizes="32x32">\r\n<link rel="icon" type="image/png" href="https://ucarecdn.com/assets/images/favicons/android-chrome-192x192.2279e9807512.png" sizes="192x192">\r\n<link rel="icon" type="image/png" href="https://ucarecdn.com/assets/images/favicons/favicon-96x96.7ff2588e373c.png" sizes="96x96">\r\n<link rel="icon" type="image/png" href="https://ucarecdn.com/assets/images/favicons/favicon-16x16.16da246cfaa6.png" sizes="16x16">\r\n<link rel="manifest" href="https://ucarecdn.com/assets/images/favicons/manifest.39888339e87c.json">\r\n<link rel="mask-icon" href="https://ucarecdn.com/assets/images/favicons/safari-pinned-tab.f5f74da2ffb6.svg" color="#ffd800">\r\n<link rel="shortcut icon" href="https://ucarecdn.com/assets/images/favicons/favicon.d82a823f08a8.ico">\r\n<meta name="msapplication-TileColor" content="#603cba">\r\n<meta name="msapplication-TileImage" content="https://ucarecdn.com/assets/images/favicons/mstile-144x144.1e7522cf4c24.png">\r\n<meta name="msapplication-config" content="https://ucarecdn.com/assets/images/favicons/browserconfig.df0a45215b92.xml">\r\n<meta name="theme-color" content="#ffffff">\r\n\r\n<link rel="stylesheet" href="main.css">\r\n</html>\r\n<body>\r\n<div id="app"><%- html %></div>\r\n</body>\r\n', __filename = "app\\template.ejs";
 	    try {
 	        var __output = [], __append = __output.push.bind(__output);
 	        with (locals || {}) {
-	            __append('<!doctype html>\r\n<html lang="en">\r\n<meta charset="utf-8">\r\n<title>UCR</title>\r\n<link rel="stylesheet" href="main.css">\r\n</html>\r\n<body>\r\n<div id="app">');
-	            __line = 8;
+	            __append('<!doctype html>\r\n<html lang="en">\r\n<meta charset="utf-8">\r\n<title>UCR</title>\r\n<meta name="viewport" content="width=device-width, initial-scale=1" />\r\n\r\n<link rel="apple-touch-icon" sizes="57x57" href="https://ucarecdn.com/assets/images/favicons/apple-touch-icon-57x57.ac85b3e8fddc.png">\r\n<link rel="apple-touch-icon" sizes="60x60" href="https://ucarecdn.com/assets/images/favicons/apple-touch-icon-60x60.3d72cc6c3b19.png">\r\n<link rel="apple-touch-icon" sizes="72x72" href="https://ucarecdn.com/assets/images/favicons/apple-touch-icon-72x72.80914b596af9.png">\r\n<link rel="apple-touch-icon" sizes="76x76" href="https://ucarecdn.com/assets/images/favicons/apple-touch-icon-76x76.14086d029e04.png">\r\n<link rel="apple-touch-icon" sizes="114x114" href="https://ucarecdn.com/assets/images/favicons/apple-touch-icon-114x114.7d5df140ee4f.png">\r\n<link rel="apple-touch-icon" sizes="120x120" href="https://ucarecdn.com/assets/images/favicons/apple-touch-icon-120x120.42f37b826666.png">\r\n<link rel="apple-touch-icon" sizes="144x144" href="https://ucarecdn.com/assets/images/favicons/apple-touch-icon-144x144.c0df64fe7ba5.png">\r\n<link rel="apple-touch-icon" sizes="152x152" href="https://ucarecdn.com/assets/images/favicons/apple-touch-icon-152x152.cf17afc546ce.png">\r\n<link rel="apple-touch-icon" sizes="180x180" href="https://ucarecdn.com/assets/images/favicons/apple-touch-icon-180x180.07a8d576d230.png">\r\n<link rel="icon" type="image/png" href="https://ucarecdn.com/assets/images/favicons/favicon-32x32.c27f006b6232.png" sizes="32x32">\r\n<link rel="icon" type="image/png" href="https://ucarecdn.com/assets/images/favicons/android-chrome-192x192.2279e9807512.png" sizes="192x192">\r\n<link rel="icon" type="image/png" href="https://ucarecdn.com/assets/images/favicons/favicon-96x96.7ff2588e373c.png" sizes="96x96">\r\n<link rel="icon" type="image/png" href="https://ucarecdn.com/assets/images/favicons/favicon-16x16.16da246cfaa6.png" sizes="16x16">\r\n<link rel="manifest" href="https://ucarecdn.com/assets/images/favicons/manifest.39888339e87c.json">\r\n<link rel="mask-icon" href="https://ucarecdn.com/assets/images/favicons/safari-pinned-tab.f5f74da2ffb6.svg" color="#ffd800">\r\n<link rel="shortcut icon" href="https://ucarecdn.com/assets/images/favicons/favicon.d82a823f08a8.ico">\r\n<meta name="msapplication-TileColor" content="#603cba">\r\n<meta name="msapplication-TileImage" content="https://ucarecdn.com/assets/images/favicons/mstile-144x144.1e7522cf4c24.png">\r\n<meta name="msapplication-config" content="https://ucarecdn.com/assets/images/favicons/browserconfig.df0a45215b92.xml">\r\n<meta name="theme-color" content="#ffffff">\r\n\r\n<link rel="stylesheet" href="main.css">\r\n</html>\r\n<body>\r\n<div id="app">');
+	            __line = 31;
 	            __append(html);
 	            __append("</div>\r\n</body>\r\n");
-	            __line = 10;
+	            __line = 33;
 	        }
 	        return __output.join("");
 	    } catch (e) {
