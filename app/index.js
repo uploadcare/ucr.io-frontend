@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import ReactDOMServer from 'react-dom/server'
 import {createHistory, createMemoryHistory} from 'history'
 import {Router, RouterContext, match} from 'react-router'
+import {Demo} from './src/components'
 
 import routes from './routes'
 import template from './template.ejs'
@@ -10,9 +11,9 @@ import template from './template.ejs'
 // Client render (optional):
 if (typeof document !== 'undefined') {
 	const history = createHistory()
-	const el = document.getElementById('app')
+	const el = document.getElementById('demo')
 
-	ReactDOM.render(<Router history={history} routes={routes}/>, el)
+	ReactDOM.render(<Demo/>, el)
 }
 
 // Exported static site renderer:
@@ -27,7 +28,7 @@ export default (locals, callback) => {
 		if (!renderProps) return callback(null, 'Not found.')
 
 		callback(null, template({
-			html: ReactDOMServer.renderToString(<RouterContext {...renderProps} />),
+			html: ReactDOMServer.renderToStaticMarkup(<RouterContext {...renderProps} />),
 			assets: locals.assets,
 		}))
 	})
