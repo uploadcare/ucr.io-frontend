@@ -1,0 +1,55 @@
+@import 'config.pcss';
+
+.button {
+  display: inline-block;
+
+  height: calc(var(--base-size) * 5);
+  padding: calc(var(--base-size) * 1.5) calc(var(--base-size) * 3);
+
+  font-size: calc(var(--base-size) * 2);
+  font-weight: 500;
+  line-height: 1;
+
+  border: none;
+  border-radius: calc(var(--base-size) * 2.5);
+  transition: var(--hover-transition);
+  outline: none;
+  box-sizing: border-box;
+  color: var(--color-dark);
+  text-decoration: none;
+
+  /* Types */
+  &.primary {
+	background-color: var(--color-yellow);
+
+	&:hover {
+	  background-color: var(--color-light-yellow);
+	}
+
+	&:active {
+	  background-color: var(--color-dark-yellow);
+	}
+  }
+
+  &.transparent {
+	background-color: transparent;
+	border-bottom: 1px solid var(--color-light-grey);
+	padding: calc(var(--base-size) / 2) 0;
+	height: auto;
+	border-radius: 0;
+	margin: var(--base-size) calc(var(--base-size) * 3);
+
+	&:hover {
+	  border-color: var(--color-yellow);
+	}
+
+	&:active {
+	  border-color: var(--color-dark-yellow);
+	}
+  }
+
+  &.dark {
+	background-color: var(--color-dark);
+	color: var(--color-light);
+  }
+}
