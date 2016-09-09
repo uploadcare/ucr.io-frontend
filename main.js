@@ -83,13 +83,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	exports.default = function (locals, callback) {
-		var location = _routes2.default[locals.path];
+		var Page = _routes2.default[locals.path];
 
-		if (location === undefined) {
+		if (!Page) {
 			callback(null, 'Not Found');
 		} else {
-			var Page = _routes2.default[locals.path];
-
 			callback(null, (0, _template2.default)({
 				html: _server2.default.renderToStaticMarkup(_react2.default.createElement(
 					_App2.default,
