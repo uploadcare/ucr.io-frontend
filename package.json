@@ -2,10 +2,11 @@
   "name": "ucr.io",
   "version": "1.0.0",
   "description": "Home page of UCR — Proxy Image CDN by Uploadcare",
-  "main": "index.js",
-  "dependencies": {
-    "eslint": "^3.4.0",
-    "eslint-config-uploadcare": "^1.0.0"
+  "scripts": {
+	"clean": "rimraf dist",
+	"build": "npm run clean && webpack",
+	"start": "npm run build && browser-sync start --server dist --files dist",
+	"test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.1",
@@ -32,24 +33,19 @@
     "postcss-svgo": "^2.1.4",
     "react": "^15.3.1",
     "react-dom": "^15.3.1",
-    "react-router": "^2.7.0",
+    "rimraf": "^2.5.4",
     "static-site-generator-webpack-plugin": "^3.0.0",
     "style-loader": "^0.13.1",
-    "webpack": "^1.13.2",
-    "webpack-dev-server": "^1.15.1"
-  },
-  "scripts": {
-    "start": "browser-sync start --server dist --files dist",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "webpack": "^1.13.2"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/uploadcare/ucr.io.git"
+    "url": "git+https://github.com/uploadcare/ucr.io-frontend.git"
   },
   "author": "Zarema Khalilova",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/uploadcare/ucr.io/issues"
+    "url": "https://github.com/uploadcare/ucr.io-frontend/issues"
   },
-  "homepage": "https://github.com/uploadcare/ucr.io#readme"
+  "homepage": "https://github.com/uploadcare/ucr.io-frontend#readme"
 }
