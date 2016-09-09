@@ -8,7 +8,7 @@ const paths = [
 
 module.exports = {
 	entry: {
-		server: './app/server.js',
+		main: './app/server.js',
 		client: './app/client.js',
 	},
 	output: {
@@ -17,7 +17,7 @@ module.exports = {
 		libraryTarget: 'umd',
 	},
 	plugins: [
-		new StaticSiteGeneratorPlugin('server', paths),
+		new StaticSiteGeneratorPlugin('main', paths),
 		new ExtractTextPlugin('[name].css'),
 	],
 	module: {

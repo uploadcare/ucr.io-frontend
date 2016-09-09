@@ -1,10 +1,19 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {Demo} from './src/components'
+import routes from './routes.client'
 
-// Client render (optional):
 if (typeof document !== 'undefined') {
-	const el = document.getElementById('demo')
+	const location = window.location.pathname
+	const components = routes[location]
 
-	ReactDOM.render(<Demo/>, el)
+	if (components) {
+		components.forEach(component => {
+			const {PageComponent, elementId} = component
+			const el = document.getElementById(elementId)
+
+			if (el) {
+				ReactDOM.render(<PageComponent/>, el)
+			}
+		})
+	}
 }

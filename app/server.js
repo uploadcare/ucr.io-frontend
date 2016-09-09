@@ -1,27 +1,20 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import ReactDOMServer from 'react-dom/server'
-import {createHistory, createMemoryHistory} from 'history'
-import {Router, RouterContext, match} from 'react-router'
-import {Demo} from './src/components'
-
-import routes from './routes'
+import App from './src/App'
+import routes from './routes.server'
 import template from './template.ejs'
 
-// Exported static site renderer:
 export default (locals, callback) => {
-	const location = createMemoryHistory().createLocation(locals.pathname)
+	const location = routes[locals.path]
 
-	match({routes, location}, (error, redirectLocation, renderProps) => {
-		if (error) {
-			console.error(error)
-			return callback(null, 'Internal server error')
-		}
-		if (!renderProps) return callback(null, 'Not found.')
+	if (location === undefined) {
+		callback(null, 'Not Found')
+	}
+	else {
+		const Page = routes[locals.path]
 
 		callback(null, template({
-			html: ReactDOMServer.renderToStaticMarkup(<RouterContext {...renderProps} />),
-			assets: locals.assets,
+			html: ReactDOMServer.renderToStaticMarkup(<App><Page/></App>),
 		}))
-	})
+	}
 }
