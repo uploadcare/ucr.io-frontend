@@ -7,7 +7,7 @@ export default class HomePage extends Component {
 		return (
 			<div>
 				<PageHeading>Resize&nbsp;and optimise&nbsp;images<br/>by&nbsp;using URL&nbsp;commands</PageHeading>
-				<Demo/>
+				<div id="demo"><Demo/></div>
 				<PageContent>
 					<h2>What is UCR?</h2>
 					<p>
