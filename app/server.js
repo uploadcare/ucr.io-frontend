@@ -8,14 +8,6 @@ import {Demo} from './src/components'
 import routes from './routes'
 import template from './template.ejs'
 
-// Client render (optional):
-if (typeof document !== 'undefined') {
-	const history = createHistory()
-	const el = document.getElementById('demo')
-
-	ReactDOM.render(<Demo/>, el)
-}
-
 // Exported static site renderer:
 export default (locals, callback) => {
 	const location = createMemoryHistory().createLocation(locals.pathname)

@@ -7,15 +7,18 @@ const paths = [
 ]
 
 module.exports = {
-	entry: {main: './app/index.js', },
+	entry: {
+		server: './app/server.js',
+		client: './app/client.js',
+	},
 	output: {
-		filename: 'index.js',
+		filename: '[name].js',
 		path: 'dist',
 		libraryTarget: 'umd',
 	},
 	plugins: [
+		new StaticSiteGeneratorPlugin('server', paths),
 		new ExtractTextPlugin('[name].css'),
-		new StaticSiteGeneratorPlugin('main', paths),
 	],
 	module: {
 		loaders: [
