@@ -1,6 +1,7 @@
 const webpack = require('webpack')
 const StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const path = require('path')
 
 const paths = [
 	'/',
@@ -41,7 +42,10 @@ module.exports = {
 		],
 	},
 	postcss: [
-		require('postcss-import')({addDependencyTo: webpack}),
+		require('postcss-import')({
+			addDependencyTo: webpack,
+			path: path.join(__dirname, 'app', 'src'),
+		}),
 		require('postcss-custom-media'),
 		require('postcss-nested'),
 		require('postcss-inline-svg')({path: 'assets/images/'}),
