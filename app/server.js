@@ -5,14 +5,12 @@ import routes from './routes.server'
 import template from './template.ejs'
 
 export default (locals, callback) => {
-	const location = routes[locals.path]
+	const Page = routes[locals.path]
 
-	if (location === undefined) {
+	if (!Page) {
 		callback(null, 'Not Found')
 	}
 	else {
-		const Page = routes[locals.path]
-
 		callback(null, template({
 			html: ReactDOMServer.renderToStaticMarkup(<App><Page/></App>),
 		}))
