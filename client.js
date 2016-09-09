@@ -64,15 +64,28 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _components = __webpack_require__(172);
+	var _routes = __webpack_require__(172);
+
+	var _routes2 = _interopRequireDefault(_routes);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	// Client render (optional):
 	if (typeof document !== 'undefined') {
-		var el = document.getElementById('demo');
+		var location = window.location.pathname;
+		var components = _routes2.default[location];
 
-		_reactDom2.default.render(_react2.default.createElement(_components.Demo, null), el);
+		if (components) {
+			components.forEach(function (component) {
+				var PageComponent = component.PageComponent;
+				var elementId = component.elementId;
+
+				var el = document.getElementById(elementId);
+
+				if (el) {
+					_reactDom2.default.render(_react2.default.createElement(PageComponent, null), el);
+				}
+			});
+		}
 	}
 
 /***/ },
@@ -21453,10 +21466,31 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _components = __webpack_require__(173);
+
+	var routes = {
+		'/': [{
+			PageComponent: _components.Demo,
+			elementId: 'demo'
+		}]
+	};
+
+	exports.default = routes;
+
+/***/ },
+/* 173 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
 
-	var _Header = __webpack_require__(173);
+	var _Header = __webpack_require__(174);
 
 	Object.defineProperty(exports, 'Header', {
 	  enumerable: true,
@@ -21465,7 +21499,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	});
 
-	var _Footer = __webpack_require__(174);
+	var _Footer = __webpack_require__(175);
 
 	Object.defineProperty(exports, 'Footer', {
 	  enumerable: true,
@@ -21474,7 +21508,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	});
 
-	var _Body = __webpack_require__(180);
+	var _Body = __webpack_require__(181);
 
 	Object.defineProperty(exports, 'Body', {
 	  enumerable: true,
@@ -21483,7 +21517,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	});
 
-	var _index = __webpack_require__(181);
+	var _index = __webpack_require__(182);
 
 	Object.defineProperty(exports, 'Demo', {
 	  enumerable: true,
@@ -21492,7 +21526,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	});
 
-	var _Logo = __webpack_require__(191);
+	var _Logo = __webpack_require__(192);
 
 	Object.defineProperty(exports, 'Logo', {
 	  enumerable: true,
@@ -21501,7 +21535,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	});
 
-	var _PageHeading = __webpack_require__(194);
+	var _PageHeading = __webpack_require__(195);
 
 	Object.defineProperty(exports, 'PageHeading', {
 	  enumerable: true,
@@ -21510,7 +21544,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	});
 
-	var _PageContent = __webpack_require__(197);
+	var _PageContent = __webpack_require__(198);
 
 	Object.defineProperty(exports, 'PageContent', {
 	  enumerable: true,
@@ -21520,34 +21554,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/***/ },
-/* 173 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _components = __webpack_require__(172);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var Header = function Header() {
-		return _react2.default.createElement(
-			'header',
-			null,
-			_react2.default.createElement(_components.Logo, null)
-		);
-	};
-
-	exports.default = Header;
 
 /***/ },
 /* 174 */
@@ -21563,11 +21569,39 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _classnames = __webpack_require__(175);
+	var _components = __webpack_require__(173);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Header = function Header() {
+		return _react2.default.createElement(
+			'header',
+			null,
+			_react2.default.createElement(_components.Logo, null)
+		);
+	};
+
+	exports.default = Header;
+
+/***/ },
+/* 175 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _classnames = __webpack_require__(176);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _Footer = __webpack_require__(176);
+	var _Footer = __webpack_require__(177);
 
 	var _Footer2 = _interopRequireDefault(_Footer);
 
@@ -21589,7 +21623,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = Footer;
 
 /***/ },
-/* 175 */
+/* 176 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -21643,17 +21677,17 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 176 */
+/* 177 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"container":"Footer_container__1kQ3J6LM"};
 
 /***/ },
-/* 177 */,
 /* 178 */,
 /* 179 */,
-/* 180 */
+/* 180 */,
+/* 181 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21680,7 +21714,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = Body;
 
 /***/ },
-/* 181 */
+/* 182 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21695,15 +21729,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _config = __webpack_require__(182);
+	var _config = __webpack_require__(183);
 
 	var _config2 = _interopRequireDefault(_config);
 
-	var _operationsToString = __webpack_require__(183);
+	var _operationsToString = __webpack_require__(184);
 
 	var _operationsToString2 = _interopRequireDefault(_operationsToString);
 
-	var _components = __webpack_require__(184);
+	var _components = __webpack_require__(185);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -21782,7 +21816,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = Demo;
 
 /***/ },
-/* 182 */
+/* 183 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -21804,7 +21838,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 183 */
+/* 184 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -21843,7 +21877,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 184 */
+/* 185 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21852,7 +21886,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 
-	var _DemoLink = __webpack_require__(185);
+	var _DemoLink = __webpack_require__(186);
 
 	Object.defineProperty(exports, 'DemoLink', {
 	  enumerable: true,
@@ -21861,7 +21895,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	});
 
-	var _DemoImage = __webpack_require__(188);
+	var _DemoImage = __webpack_require__(189);
 
 	Object.defineProperty(exports, 'DemoImage', {
 	  enumerable: true,
@@ -21873,7 +21907,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 185 */
+/* 186 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21886,11 +21920,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _classnames = __webpack_require__(175);
+	var _classnames = __webpack_require__(176);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _DemoLink = __webpack_require__(186);
+	var _DemoLink = __webpack_require__(187);
 
 	var _DemoLink2 = _interopRequireDefault(_DemoLink);
 
@@ -21942,15 +21976,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = DemoLink;
 
 /***/ },
-/* 186 */
+/* 187 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"container":"DemoLink_container__1Nnnvh76","heading":"DemoLink_heading__3N7RgneJ","link":"DemoLink_link__29UEOwpY","linkPart":"DemoLink_linkPart__2TIScKYu"};
 
 /***/ },
-/* 187 */,
-/* 188 */
+/* 188 */,
+/* 189 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21963,11 +21997,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _classnames = __webpack_require__(175);
+	var _classnames = __webpack_require__(176);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _DemoImage = __webpack_require__(189);
+	var _DemoImage = __webpack_require__(190);
 
 	var _DemoImage2 = _interopRequireDefault(_DemoImage);
 
@@ -21989,15 +22023,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = DemoImage;
 
 /***/ },
-/* 189 */
+/* 190 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"container":"DemoImage_container__CgapZlcY","image":"DemoImage_image__3g619qF2"};
 
 /***/ },
-/* 190 */,
-/* 191 */
+/* 191 */,
+/* 192 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22010,11 +22044,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _classnames = __webpack_require__(175);
+	var _classnames = __webpack_require__(176);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _Logo = __webpack_require__(192);
+	var _Logo = __webpack_require__(193);
 
 	var _Logo2 = _interopRequireDefault(_Logo);
 
@@ -22032,15 +22066,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = Logo;
 
 /***/ },
-/* 192 */
+/* 193 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"logoContainer":"Logo_logoContainer__1RqAeRTo","logo":"Logo_logo__30kI9BuI"};
 
 /***/ },
-/* 193 */,
-/* 194 */
+/* 194 */,
+/* 195 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22053,11 +22087,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _classnames = __webpack_require__(175);
+	var _classnames = __webpack_require__(176);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _PageHeading = __webpack_require__(195);
+	var _PageHeading = __webpack_require__(196);
 
 	var _PageHeading2 = _interopRequireDefault(_PageHeading);
 
@@ -22075,15 +22109,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = PageHeading;
 
 /***/ },
-/* 195 */
+/* 196 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"pageHeading":"PageHeading_pageHeading__2P1KI3Ee"};
 
 /***/ },
-/* 196 */,
-/* 197 */
+/* 197 */,
+/* 198 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22096,11 +22130,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _classnames = __webpack_require__(175);
+	var _classnames = __webpack_require__(176);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _PageContent = __webpack_require__(198);
+	var _PageContent = __webpack_require__(199);
 
 	var _PageContent2 = _interopRequireDefault(_PageContent);
 
@@ -22118,7 +22152,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = PageContent;
 
 /***/ },
-/* 198 */
+/* 199 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
