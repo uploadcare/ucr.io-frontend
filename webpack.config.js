@@ -1,6 +1,7 @@
 const webpack = require('webpack')
 const StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const path = require('path')
 
 const pathToElements = path.resolve(__dirname, 'app', 'src', 'elements')
@@ -23,6 +24,13 @@ module.exports = {
 	plugins: [
 		new StaticSiteGeneratorPlugin('main', paths),
 		new ExtractTextPlugin('[name].css'),
+		new CopyWebpackPlugin([
+			{
+				from: './assets/CNAME',
+				to: 'CNAME',
+				toType: 'file',
+			},
+		]),
 	],
 	module: {
 		loaders: [
