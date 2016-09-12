@@ -1,0 +1,19 @@
+@import 'config.pcss';
+
+:root {
+  --max-container-width: var(--layout-max-width);
+
+  --container: {
+	width: calc(100vw - calc(var(--base-size) * 4));
+	margin: 0 auto;
+
+	@media (--medium-viewport) {
+	  width: calc(100vw - calc(var(--base-size) * 10));
+	}
+
+	@media (--large-viewport) {
+	  width: 100vw;
+	  max-width: var(--max-container-width);
+	}
+  }
+}

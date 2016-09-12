@@ -1,15 +1,5 @@
-@import 'config.pcss';
+@import 'custom-properties.pcss';
 
 .pageHeading {
-  width: calc(100% - 32px);
-  margin: 0 auto;
-
-  @media (--medium-viewport) {
-	width: calc(100% - 80px);
-  }
-
-  @media (--large-viewport) {
-	width: 100%;
-	max-width: var(--layout-max-width);
-  }
+  @apply --container;
 }
