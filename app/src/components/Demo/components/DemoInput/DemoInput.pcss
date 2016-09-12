@@ -1,3 +1,16 @@
-.container {
+@import 'global.pcss';
+@import 'custom-properties.pcss';
 
+.container {
+  --max-container-width: 600px;
+
+  @apply --container;
+
+  margin-top: calc(var(--base-size) * 2);
+  margin-bottom: calc(var(--base-size) * 2);
+
+  @media (--medium-viewport) {
+	margin-top: calc(var(--base-size) * 5);
+	margin-bottom: calc(var(--base-size) * 5);
+  }
 }

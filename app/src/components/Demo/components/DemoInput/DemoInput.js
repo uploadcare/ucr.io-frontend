@@ -1,15 +1,15 @@
 import React from 'react'
 import cn from 'classnames'
 import styles from './DemoInput.pcss'
-import {Button} from 'elements/Button/Button'
+import {Button, Input, InputGroup} from 'elements'
 
-const DemoImage = ({url}) => (
+const DemoInput = ({value}) => (
 	<div className={cn(styles.container)}>
-		<div>
-			<input type='text'/>
+		<InputGroup>
+			<Input placeholder='Your image URL' value={value}/>
 			<Button color='dark'>Go</Button>
-		</div>
+		</InputGroup>
 	</div>
 )
 
-export default DemoImage
+export default DemoInput
