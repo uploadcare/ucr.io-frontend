@@ -3,6 +3,7 @@ import cn from 'classnames'
 import styles from './Input.pcss'
 
 const Input = ({
+	inputRef,
 	value,
 	placeholder,
 	type = 'text',
@@ -16,6 +17,7 @@ const Input = ({
 	)
 
 	return <input
+		ref={inputRef}
 		defaultValue={value}
 		placeholder={placeholder}
 		type={type}
