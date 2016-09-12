@@ -1,13 +1,21 @@
 import React from 'react'
-import cn from 'classnames'
 import styles from './DemoImage.pcss'
+import ImageLoader from 'react-imageloader'
+import {Spinner} from 'elements'
 
-const DemoImage = ({url}) => (
-	<div className={cn(styles.container)}>
-		<a href={url}>
-			<img src={url} alt="" className={cn(styles.image)}/>
-		</a>
-	</div>
+const DemoImage = ({
+	url,
+	onLoad,
+}) => (
+	<a href={url}>
+		<ImageLoader
+			src={url}
+			className={styles.image}
+			preloader={Spinner}
+			onLoad={onLoad}>
+			Something went wrong. Please, provide another image URL.
+		</ImageLoader>
+	</a>
 )
 
 export default DemoImage

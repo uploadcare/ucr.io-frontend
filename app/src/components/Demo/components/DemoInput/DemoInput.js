@@ -3,11 +3,18 @@ import cn from 'classnames'
 import styles from './DemoInput.pcss'
 import {Button, Input, InputGroup} from 'elements'
 
-const DemoInput = ({value}) => (
+const DemoInput = ({
+	value,
+	inputRef,
+	onButtonClick,
+}) => (
 	<div className={cn(styles.container)}>
 		<InputGroup>
-			<Input placeholder='Your image URL' value={value}/>
-			<Button color='dark'>Go</Button>
+			<Input
+				placeholder='Your image URL'
+				value={value}
+				inputRef={inputRef}/>
+			<Button color='dark' onClick={onButtonClick}>Go</Button>
 		</InputGroup>
 	</div>
 )

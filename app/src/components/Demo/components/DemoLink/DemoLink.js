@@ -7,14 +7,11 @@ const DemoLink = ({
 	demoImageUrl,
 	operations,
 }) => (
-	<div className={cn(styles.container)}>
-		<h2 className={cn(styles.heading)}>UCR link for your image:</h2>
-		<a href={`${proxyBase}${demoImageUrl}+${operations}`} className={cn(styles.link)}>
-			<span className={cn(styles.linkPart)}><b>{proxyBase}</b></span>
-			<span className={cn(styles.linkPart)}>{demoImageUrl}</span>
-			<span className={cn(styles.linkPart)}>+<b>{operations}</b></span>
-		</a>
-	</div>
+	<a href={`${proxyBase}${demoImageUrl}+${operations}`} className={cn(styles.link)}>
+		<span className={cn(styles.part, styles.mainPart)}>{proxyBase}</span>
+		<span className={cn(styles.linkPart)}>{demoImageUrl}</span>
+		<span className={cn(styles.part, styles.mainPart)}>+{operations}</span>
+	</a>
 )
 
 export default DemoLink
