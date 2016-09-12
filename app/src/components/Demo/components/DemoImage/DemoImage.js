@@ -13,7 +13,10 @@ const DemoImage = ({
 			imgProps={{className: styles.image}}
 			preloader={Spinner}
 			onLoad={onLoad}>
-			Something went wrong. Please, provide another image URL.
+			<div className={styles.errorMessage}>
+				<p>Something went wrong.</p>
+				<p>Please, provide another image URL.</p>
+			</div>
 		</ImageLoader>
 	</a>
 )
