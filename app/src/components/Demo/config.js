@@ -1,6 +1,6 @@
 export default {
 	proxyBase: 'https://fetch-magick.herokuapp.com/m/',
-	demoImageUrl: 'http://placekitten.com/1000/500',
+	demoImageUrl: '',
 	demoImageOperations: [
 		{
 			name: 'preview',
