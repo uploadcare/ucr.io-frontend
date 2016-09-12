@@ -4,13 +4,13 @@ import styles from './Button.pcss'
 
 const Button = ({
 	children,
-	colorType,
+	color,
 	className,
 	onClick,
 }) => {
 	const classes = cn(
 		styles.button,
-		styles[colorType],
+		styles[color],
 		className
 	)
 

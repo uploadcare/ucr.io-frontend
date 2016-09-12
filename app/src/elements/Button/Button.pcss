@@ -22,7 +22,7 @@
   &.primary {
 	background-color: var(--color-yellow);
 
-	&:hover {
+	&:hover, &:focus {
 	  background-color: var(--color-light-yellow);
 	}
 
@@ -39,7 +39,7 @@
 	border-radius: 0;
 	margin: var(--base-size) calc(var(--base-size) * 3);
 
-	&:hover {
+	&:hover, &:focus {
 	  border-color: var(--color-yellow);
 	}
 
@@ -51,5 +51,13 @@
   &.dark {
 	background-color: var(--color-dark);
 	color: var(--color-light);
+
+	&:hover, &:focus {
+	  background-color: var(--color-gray--75);
+	}
+
+	&:active {
+	  background-color: var(--color-gray--68);
+	}
   }
 }
