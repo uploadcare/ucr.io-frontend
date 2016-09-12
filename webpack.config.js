@@ -50,6 +50,7 @@ module.exports = {
 			path: path.join(__dirname, 'app', 'src'),
 		}),
 		require('postcss-custom-media'),
+		require('postcss-apply'),
 		require('postcss-nested'),
 		require('postcss-inline-svg')({path: 'assets/images/'}),
 		require('postcss-assets')({

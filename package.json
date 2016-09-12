@@ -23,6 +23,7 @@
     "eslint-plugin-react": "^6.2.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "path": "^0.12.7",
+    "postcss-apply": "^0.3.0",
     "postcss-assets": "^4.1.0",
     "postcss-calc": "^5.3.1",
     "postcss-css-variables": "^0.5.2",
