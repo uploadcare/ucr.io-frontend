@@ -55,11 +55,11 @@ class Demo extends Component {
 						}
 					</figure>
 					}
-					{demoImageLoaded &&
-					<div className={styles.demoOperations}>
-						<DemoOperations operations={operations}/>
-					</div>
-					}
+					{/*{demoImageLoaded &&*/}
+					{/*<div className={styles.demoOperations}>*/}
+						{/*<DemoOperations operations={operations}/>*/}
+					{/*</div>*/}
+					{/*}*/}
 				</div>
 				}
 			</div>
