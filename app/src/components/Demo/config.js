@@ -1,6 +1,6 @@
 export default {
 	proxyBase: 'https://fetch-magick.herokuapp.com/m/',
-	demoImageUrl: 'http://www.gratisography.com/pictures/333_1.jpg',
+	demoImageUrl: '',
 	demoImageOperations: [
 		{
 			name: 'preview',
