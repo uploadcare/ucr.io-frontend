@@ -1,0 +1,25 @@
+@import 'config.pcss';
+
+.input {
+  display: inline-block;
+
+  height: calc(var(--base-size) * 5);
+  padding: calc(var(--base-size) * 1.5) calc(var(--base-size) * 2);
+
+  font-size: calc(var(--base-size) * 2);
+  font-weight: 100;
+  line-height: 1;
+
+  border: none;
+  border-radius: calc(var(--base-size) * 2.5);
+  transition: var(--hover-transition);
+  outline: none;
+  box-sizing: border-box;
+
+  background-color: var(--color-gray--09);
+  color: var(--color-dark);
+
+  &::placeholder {
+	color: var(--color-gray--52);
+  }
+}
