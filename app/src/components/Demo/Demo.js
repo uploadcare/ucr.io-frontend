@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import config from './config'
 import operationsToString from '../../lib/operations-to-string'
-import {DemoInput, DemoImage, DemoLink} from './components'
+import {DemoInput, DemoImage, DemoLink, DemoOperations} from './components'
 import styles from './Demo.pcss'
 
 
@@ -9,12 +9,12 @@ class Demo extends Component {
 	constructor(props) {
 		super(props)
 
-		const {proxyBase, demoImageUrl, demoImageOperations} = config
-		const operations = operationsToString(demoImageOperations)
+		const {proxyBase, demoImageUrl, demoImageOperations, operations} = config
 
 		this.state = {
 			proxyBase,
 			demoImageUrl,
+			demoImageOperations: operationsToString(demoImageOperations),
 			operations,
 			demoImageLoaded: false,
 		}
@@ -32,8 +32,8 @@ class Demo extends Component {
 	}
 
 	render() {
-		const {proxyBase, demoImageUrl, operations, demoImageLoaded} = this.state
-		const url = demoImageUrl && `${proxyBase}${demoImageUrl}+${operations}`
+		const {proxyBase, demoImageUrl, demoImageOperations, demoImageLoaded, operations} = this.state
+		const url = demoImageUrl && `${proxyBase}${demoImageUrl}+${demoImageOperations}`
 
 		return (
 			<div>
@@ -54,6 +54,11 @@ class Demo extends Component {
 						</figcaption>
 						}
 					</figure>
+					}
+					{demoImageLoaded &&
+					<div className={styles.demoOperations}>
+						<DemoOperations operations={operations}/>
+					</div>
 					}
 				</div>
 				}

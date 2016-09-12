@@ -5,13 +5,13 @@ import styles from './DemoLink.pcss'
 const DemoLink = ({
 	proxyBase,
 	demoImageUrl,
-	operations,
+	demoImageOperations,
 	className,
 }) => (
-	<a href={`${proxyBase}${demoImageUrl}+${operations}`} className={cn(styles.link, className)}>
+	<a href={`${proxyBase}${demoImageUrl}+${demoImageOperations}`} className={cn(styles.link, className)}>
 		<span className={styles.part}>{proxyBase}</span>
 		<span className={cn(styles.part, styles.url)}>{demoImageUrl}</span>
-		<span className={styles.part}>+{operations}</span>
+		<span className={styles.part}>+{demoImageOperations}</span>
 	</a>
 )
 
