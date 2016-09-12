@@ -6,11 +6,12 @@ const DemoLink = ({
 	proxyBase,
 	demoImageUrl,
 	operations,
+	className,
 }) => (
-	<a href={`${proxyBase}${demoImageUrl}+${operations}`} className={cn(styles.link)}>
-		<span className={cn(styles.part, styles.mainPart)}>{proxyBase}</span>
-		<span className={cn(styles.linkPart)}>{demoImageUrl}</span>
-		<span className={cn(styles.part, styles.mainPart)}>+{operations}</span>
+	<a href={`${proxyBase}${demoImageUrl}+${operations}`} className={cn(styles.link, className)}>
+		<span className={styles.part}>{proxyBase}</span>
+		<span className={cn(styles.part, styles.url)}>{demoImageUrl}</span>
+		<span className={styles.part}>+{operations}</span>
 	</a>
 )
 

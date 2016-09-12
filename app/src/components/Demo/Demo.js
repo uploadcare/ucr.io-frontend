@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import config from './config'
 import operationsToString from '../../lib/operations-to-string'
 import {DemoInput, DemoImage, DemoLink} from './components'
+import styles from './Demo.pcss'
 
 
 class Demo extends Component {
@@ -42,14 +43,14 @@ class Demo extends Component {
 						inputRef={(ref) => this.demoInput = ref}
 						onButtonClick={() => this.changeUrl()}/>
 					{demoImageUrl &&
-					<figure>
+					<figure className={styles.demoImageContainer}>
 						<DemoImage
 							url={url}
 							onLoad={() => this.onDemoImageLoad()}/>
 						{demoImageLoaded &&
 						<figcaption>
-							<p>UCR link for your image:</p>
-							<DemoLink {...this.state}/>
+							<p className={styles.demoLinkHeading}>UCR link for your image:</p>
+							<DemoLink {...this.state} className={styles.demoLink}/>
 						</figcaption>
 						}
 					</figure>

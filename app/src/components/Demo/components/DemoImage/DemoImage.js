@@ -7,10 +7,10 @@ const DemoImage = ({
 	url,
 	onLoad,
 }) => (
-	<a href={url}>
+	<a href={url} className={styles.link}>
 		<ImageLoader
 			src={url}
-			className={styles.image}
+			imgProps={{className: styles.image}}
 			preloader={Spinner}
 			onLoad={onLoad}>
 			Something went wrong. Please, provide another image URL.

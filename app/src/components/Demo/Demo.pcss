@@ -1,0 +1,28 @@
+@import 'config.pcss';
+
+.demoImageContainer {
+  background-color: var(--color-dark);
+  color: var(--color-light);
+
+  text-align: center;
+
+  margin: 0;
+  padding: calc(var(--base-size) * 4);
+
+  @media (--medium-viewport) {
+	padding: calc(var(--base-size) * 5);
+  }
+}
+
+.demoLinkHeading {
+  margin: calc(var(--base-size) * 2) 0 var(--base-size);
+  font-weight: 500;
+
+  @media (--medium-viewport) {
+	margin-top: calc(var(--base-size) * 4);
+  }
+}
+
+.demoLink {
+  color: var(--color-light);
+}
