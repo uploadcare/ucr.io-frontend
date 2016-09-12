@@ -4,7 +4,7 @@
   "description": "Home page of UCR — Proxy Image CDN by Uploadcare",
   "scripts": {
 	"clean": "rimraf dist",
-	"build": "npm run clean && webpack",
+	"build": "webpack",
 	"start": "npm run build && browser-sync start --server dist --files dist",
 	"test": "echo \"Error: no test specified\" && exit 1"
   },
