@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "Home page of UCR — Proxy Image CDN by Uploadcare",
   "scripts": {
-	"clean": "rimraf dist",
-	"build": "npm run clean && webpack",
-	"start": "npm run build && browser-sync start --server dist --files dist",
-	"test": "echo \"Error: no test specified\" && exit 1"
+    "clean": "rimraf dist",
+    "build": "webpack",
+    "start": "npm run build && browser-sync start --server dist --files dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.1",
@@ -22,6 +22,8 @@
     "eslint-config-uploadcare": "^1.0.0",
     "eslint-plugin-react": "^6.2.0",
     "extract-text-webpack-plugin": "^1.0.1",
+    "path": "^0.12.7",
+    "postcss-apply": "^0.3.0",
     "postcss-assets": "^4.1.0",
     "postcss-calc": "^5.3.1",
     "postcss-css-variables": "^0.5.2",
@@ -33,6 +35,7 @@
     "postcss-svgo": "^2.1.4",
     "react": "^15.3.1",
     "react-dom": "^15.3.1",
+    "react-imageloader": "^2.1.0",
     "rimraf": "^2.5.4",
     "static-site-generator-webpack-plugin": "^3.0.0",
     "style-loader": "^0.13.1",

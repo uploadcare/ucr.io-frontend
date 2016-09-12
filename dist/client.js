@@ -21517,16 +21517,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	});
 
-	var _index = __webpack_require__(182);
+	var _Demo = __webpack_require__(182);
 
 	Object.defineProperty(exports, 'Demo', {
 	  enumerable: true,
 	  get: function get() {
-	    return _interopRequireDefault(_index).default;
+	    return _interopRequireDefault(_Demo).default;
 	  }
 	});
 
-	var _Logo = __webpack_require__(192);
+	var _Logo = __webpack_require__(214);
 
 	Object.defineProperty(exports, 'Logo', {
 	  enumerable: true,
@@ -21535,7 +21535,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	});
 
-	var _PageHeading = __webpack_require__(195);
+	var _PageHeading = __webpack_require__(217);
 
 	Object.defineProperty(exports, 'PageHeading', {
 	  enumerable: true,
@@ -21544,7 +21544,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	});
 
-	var _PageContent = __webpack_require__(198);
+	var _PageContent = __webpack_require__(220);
 
 	Object.defineProperty(exports, 'PageContent', {
 	  enumerable: true,
@@ -21723,6 +21723,8 @@ return /******/ (function(modules) { // webpackBootstrap
 		value: true
 	});
 
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
@@ -21738,6 +21740,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _operationsToString2 = _interopRequireDefault(_operationsToString);
 
 	var _components = __webpack_require__(185);
+
+	var _Demo = __webpack_require__(212);
+
+	var _Demo2 = _interopRequireDefault(_Demo);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -21758,53 +21764,78 @@ return /******/ (function(modules) { // webpackBootstrap
 			var proxyBase = _config2.default.proxyBase;
 			var demoImageUrl = _config2.default.demoImageUrl;
 			var demoImageOperations = _config2.default.demoImageOperations;
+			var operations = _config2.default.operations;
 
-			var operations = (0, _operationsToString2.default)(demoImageOperations);
 
 			_this.state = {
 				proxyBase: proxyBase,
 				demoImageUrl: demoImageUrl,
-				operations: operations
+				demoImageOperations: (0, _operationsToString2.default)(demoImageOperations),
+				operations: operations,
+				demoImageLoaded: false
 			};
-
-			_this.onClick = _this.onClick.bind(_this);
 			return _this;
 		}
 
 		_createClass(Demo, [{
-			key: 'onClick',
-			value: function onClick() {
+			key: 'changeUrl',
+			value: function changeUrl() {
 				this.setState({
-					demoImageUrl: 'http://placekitten.com/100/300'
+					demoImageUrl: this.demoInput.value,
+					demoImageLoaded: false
 				});
 			}
 		}, {
-			key: 'componentDidMount',
-			value: function componentDidMount() {
-				console.log('hi');
+			key: 'onDemoImageLoad',
+			value: function onDemoImageLoad() {
+				this.setState({ demoImageLoaded: true });
 			}
 		}, {
 			key: 'render',
 			value: function render() {
+				var _this2 = this;
+
 				var _state = this.state;
 				var proxyBase = _state.proxyBase;
 				var demoImageUrl = _state.demoImageUrl;
+				var demoImageOperations = _state.demoImageOperations;
+				var demoImageLoaded = _state.demoImageLoaded;
 				var operations = _state.operations;
 
+				var url = demoImageUrl && '' + proxyBase + demoImageUrl + '+' + demoImageOperations;
 
 				return _react2.default.createElement(
 					'div',
 					null,
-					_react2.default.createElement(_components.DemoLink, {
-						proxyBase: proxyBase,
-						demoImageUrl: demoImageUrl,
-						operations: operations
-					}),
-					_react2.default.createElement(_components.DemoImage, { url: '' + proxyBase + demoImageUrl + '+' + operations }),
-					_react2.default.createElement(
-						'button',
-						{ onClick: this.onClick },
-						'Click me'
+					typeof document !== 'undefined' && _react2.default.createElement(
+						'div',
+						null,
+						_react2.default.createElement(_components.DemoInput, {
+							inputRef: function inputRef(ref) {
+								return _this2.demoInput = ref;
+							},
+							onButtonClick: function onButtonClick() {
+								return _this2.changeUrl();
+							} }),
+						demoImageUrl && _react2.default.createElement(
+							'figure',
+							{ className: _Demo2.default.demoImageContainer },
+							_react2.default.createElement(_components.DemoImage, {
+								url: url,
+								onLoad: function onLoad() {
+									return _this2.onDemoImageLoad();
+								} }),
+							demoImageLoaded && _react2.default.createElement(
+								'figcaption',
+								null,
+								_react2.default.createElement(
+									'p',
+									{ className: _Demo2.default.demoLinkHeading },
+									'UCR link for your image:'
+								),
+								_react2.default.createElement(_components.DemoLink, _extends({}, this.state, { className: _Demo2.default.demoLink }))
+							)
+						)
 					)
 				);
 			}
@@ -21826,7 +21857,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	exports.default = {
 		proxyBase: 'https://fetch-magick.herokuapp.com/m/',
-		demoImageUrl: 'http://placekitten.com/1000/500',
+		demoImageUrl: '',
 		demoImageOperations: [{
 			name: 'preview'
 		}, {
@@ -21834,6 +21865,62 @@ return /******/ (function(modules) { // webpackBootstrap
 			value: 'x300'
 		}, {
 			name: 'enhance'
+		}],
+		operations: [{
+			name: 'format',
+			operations: [{
+				name: 'JPG',
+				modificator: {
+					name: 'format',
+					value: 'jpg'
+				}
+			}, {
+				name: 'PNG',
+				modificator: {
+					name: 'format',
+					value: 'png'
+				}
+			}]
+		}, {
+			name: 'quality',
+			operations: [{
+				name: 'lightest',
+				modificator: {
+					name: 'quality',
+					value: 'lightest'
+				}
+			}, {
+				name: 'light',
+				modificator: {
+					name: 'quality',
+					value: 'light'
+				}
+			}]
+		}, {
+			name: 'size',
+			operations: [{
+				name: 'resize',
+				modificator: {
+					name: 'resize',
+					value: 'x300'
+				}
+			}, {
+				name: 'crop',
+				modificator: {
+					name: 'crop',
+					value: '300x300',
+					more: 'center'
+				}
+			}]
+		}, {
+			name: 'effects',
+			operations: [{
+				name: 'enhance',
+				modificator: { name: 'enhance' }
+			}, {
+				name: 'grayscale',
+				modificator: { name: 'grayscale' }
+			}]
 		}]
 	};
 
@@ -21904,6 +21991,24 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	});
 
+	var _DemoInput = __webpack_require__(206);
+
+	Object.defineProperty(exports, 'DemoInput', {
+	  enumerable: true,
+	  get: function get() {
+	    return _interopRequireDefault(_DemoInput).default;
+	  }
+	});
+
+	var _DemoOperations = __webpack_require__(209);
+
+	Object.defineProperty(exports, 'DemoOperations', {
+	  enumerable: true,
+	  get: function get() {
+	    return _interopRequireDefault(_DemoOperations).default;
+	  }
+	});
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
@@ -21933,42 +22038,26 @@ return /******/ (function(modules) { // webpackBootstrap
 	var DemoLink = function DemoLink(_ref) {
 		var proxyBase = _ref.proxyBase;
 		var demoImageUrl = _ref.demoImageUrl;
-		var operations = _ref.operations;
+		var demoImageOperations = _ref.demoImageOperations;
+		var className = _ref.className;
 		return _react2.default.createElement(
-			'div',
-			{ className: (0, _classnames2.default)(_DemoLink2.default.container) },
+			'a',
+			{ href: '' + proxyBase + demoImageUrl + '+' + demoImageOperations, className: (0, _classnames2.default)(_DemoLink2.default.link, className) },
 			_react2.default.createElement(
-				'h2',
-				{ className: (0, _classnames2.default)(_DemoLink2.default.heading) },
-				'UCR link for your image:'
+				'span',
+				{ className: _DemoLink2.default.part },
+				proxyBase
 			),
 			_react2.default.createElement(
-				'a',
-				{ href: '' + proxyBase + demoImageUrl + '+' + operations, className: (0, _classnames2.default)(_DemoLink2.default.link) },
-				_react2.default.createElement(
-					'span',
-					{ className: (0, _classnames2.default)(_DemoLink2.default.linkPart) },
-					_react2.default.createElement(
-						'b',
-						null,
-						proxyBase
-					)
-				),
-				_react2.default.createElement(
-					'span',
-					{ className: (0, _classnames2.default)(_DemoLink2.default.linkPart) },
-					demoImageUrl
-				),
-				_react2.default.createElement(
-					'span',
-					{ className: (0, _classnames2.default)(_DemoLink2.default.linkPart) },
-					'+',
-					_react2.default.createElement(
-						'b',
-						null,
-						operations
-					)
-				)
+				'span',
+				{ className: (0, _classnames2.default)(_DemoLink2.default.part, _DemoLink2.default.url) },
+				demoImageUrl
+			),
+			_react2.default.createElement(
+				'span',
+				{ className: _DemoLink2.default.part },
+				'+',
+				demoImageOperations
 			)
 		);
 	};
@@ -21980,7 +22069,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"container":"DemoLink_container__1Nnnvh76","heading":"DemoLink_heading__3N7RgneJ","link":"DemoLink_link__29UEOwpY","linkPart":"DemoLink_linkPart__2TIScKYu"};
+	module.exports = {"link":"DemoLink_link__psSTGk-T","part":"DemoLink_part__1zLg_SDC","url":"DemoLink_url__3nPHOVaC"};
 
 /***/ },
 /* 188 */,
@@ -21997,25 +22086,45 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _classnames = __webpack_require__(176);
-
-	var _classnames2 = _interopRequireDefault(_classnames);
-
 	var _DemoImage = __webpack_require__(190);
 
 	var _DemoImage2 = _interopRequireDefault(_DemoImage);
+
+	var _reactImageloader = __webpack_require__(192);
+
+	var _reactImageloader2 = _interopRequireDefault(_reactImageloader);
+
+	var _elements = __webpack_require__(193);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var DemoImage = function DemoImage(_ref) {
 		var url = _ref.url;
+		var onLoad = _ref.onLoad;
 		return _react2.default.createElement(
-			'div',
-			{ className: (0, _classnames2.default)(_DemoImage2.default.container) },
+			'a',
+			{ href: url, className: _DemoImage2.default.link },
 			_react2.default.createElement(
-				'a',
-				{ href: url },
-				_react2.default.createElement('img', { src: url, alt: '', className: (0, _classnames2.default)(_DemoImage2.default.image) })
+				_reactImageloader2.default,
+				{
+					src: url,
+					imgProps: { className: _DemoImage2.default.image },
+					preloader: _elements.Spinner,
+					onLoad: onLoad },
+				_react2.default.createElement(
+					'div',
+					{ className: _DemoImage2.default.errorMessage },
+					_react2.default.createElement(
+						'p',
+						null,
+						'Something went wrong.'
+					),
+					_react2.default.createElement(
+						'p',
+						null,
+						'Please, provide another image URL.'
+					)
+				)
 			)
 		);
 	};
@@ -22027,11 +22136,353 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"container":"DemoImage_container__CgapZlcY","image":"DemoImage_image__3g619qF2"};
+	module.exports = {"image":"DemoImage_image__6xMWwGBj","link":"DemoImage_link__W72HdXWm","errorMessage":"DemoImage_errorMessage__3jV42bVy"};
 
 /***/ },
 /* 191 */,
 /* 192 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var PropTypes = _react2['default'].PropTypes;
+	var span = _react2['default'].DOM.span;
+
+	var Status = {
+	  PENDING: 'pending',
+	  LOADING: 'loading',
+	  LOADED: 'loaded',
+	  FAILED: 'failed'
+	};
+
+	var ImageLoader = (function (_React$Component) {
+	  function ImageLoader(props) {
+	    _classCallCheck(this, ImageLoader);
+
+	    _get(Object.getPrototypeOf(ImageLoader.prototype), 'constructor', this).call(this, props);
+	    this.state = { status: props.src ? Status.LOADING : Status.PENDING };
+	  }
+
+	  _inherits(ImageLoader, _React$Component);
+
+	  _createClass(ImageLoader, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      if (this.state.status === Status.LOADING) {
+	        this.createLoader();
+	      }
+	    }
+	  }, {
+	    key: 'componentWillReceiveProps',
+	    value: function componentWillReceiveProps(nextProps) {
+	      if (this.props.src !== nextProps.src) {
+	        this.setState({
+	          status: nextProps.src ? Status.LOADING : Status.PENDING
+	        });
+	      }
+	    }
+	  }, {
+	    key: 'componentDidUpdate',
+	    value: function componentDidUpdate() {
+	      if (this.state.status === Status.LOADING && !this.img) {
+	        this.createLoader();
+	      }
+	    }
+	  }, {
+	    key: 'componentWillUnmount',
+	    value: function componentWillUnmount() {
+	      this.destroyLoader();
+	    }
+	  }, {
+	    key: 'getClassName',
+	    value: function getClassName() {
+	      var className = 'imageloader ' + this.state.status;
+	      if (this.props.className) className = '' + className + ' ' + this.props.className;
+	      return className;
+	    }
+	  }, {
+	    key: 'createLoader',
+	    value: function createLoader() {
+	      this.destroyLoader(); // We can only have one loader at a time.
+
+	      this.img = new Image();
+	      this.img.onload = this.handleLoad.bind(this);
+	      this.img.onerror = this.handleError.bind(this);
+	      this.img.src = this.props.src;
+	    }
+	  }, {
+	    key: 'destroyLoader',
+	    value: function destroyLoader() {
+	      if (this.img) {
+	        this.img.onload = null;
+	        this.img.onerror = null;
+	        this.img = null;
+	      }
+	    }
+	  }, {
+	    key: 'handleLoad',
+	    value: function handleLoad(event) {
+	      this.destroyLoader();
+	      this.setState({ status: Status.LOADED });
+
+	      if (this.props.onLoad) this.props.onLoad(event);
+	    }
+	  }, {
+	    key: 'handleError',
+	    value: function handleError(error) {
+	      this.destroyLoader();
+	      this.setState({ status: Status.FAILED });
+
+	      if (this.props.onError) this.props.onError(error);
+	    }
+	  }, {
+	    key: 'renderImg',
+	    value: function renderImg() {
+	      var _props2 = this.props;
+	      var src = _props2.src;
+	      var imgProps = _props2.imgProps;
+
+	      var props = { src: src };
+
+	      for (var k in imgProps) {
+	        if (imgProps.hasOwnProperty(k)) {
+	          props[k] = imgProps[k];
+	        }
+	      }
+
+	      return _react2['default'].createElement('img', props);
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _props;
+
+	      var wrapperProps = {
+	        className: this.getClassName()
+	      };
+
+	      if (this.props.style) {
+	        wrapperProps.style = this.props.style;
+	      }
+
+	      var wrapperArgs = [wrapperProps];
+
+	      switch (this.state.status) {
+	        case Status.LOADED:
+	          wrapperArgs.push(this.renderImg());
+	          break;
+
+	        case Status.FAILED:
+	          if (this.props.children) wrapperArgs.push(this.props.children);
+	          break;
+
+	        default:
+	          if (this.props.preloader) wrapperArgs.push(this.props.preloader());
+	          break;
+	      }
+
+	      return (_props = this.props).wrapper.apply(_props, wrapperArgs);
+	    }
+	  }], [{
+	    key: 'propTypes',
+	    value: {
+	      wrapper: PropTypes.func,
+	      className: PropTypes.string,
+	      style: PropTypes.object,
+	      preloader: PropTypes.func,
+	      src: PropTypes.string,
+	      onLoad: PropTypes.func,
+	      onError: PropTypes.func,
+	      imgProps: PropTypes.object
+	    },
+	    enumerable: true
+	  }, {
+	    key: 'defaultProps',
+	    value: {
+	      wrapper: span
+	    },
+	    enumerable: true
+	  }]);
+
+	  return ImageLoader;
+	})(_react2['default'].Component);
+
+	exports['default'] = ImageLoader;
+	module.exports = exports['default'];
+
+/***/ },
+/* 193 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _Button = __webpack_require__(194);
+
+	Object.defineProperty(exports, 'Button', {
+	  enumerable: true,
+	  get: function get() {
+	    return _Button.Button;
+	  }
+	});
+
+	var _Input = __webpack_require__(197);
+
+	Object.defineProperty(exports, 'Input', {
+	  enumerable: true,
+	  get: function get() {
+	    return _Input.Input;
+	  }
+	});
+
+	var _InputGroup = __webpack_require__(200);
+
+	Object.defineProperty(exports, 'InputGroup', {
+	  enumerable: true,
+	  get: function get() {
+	    return _interopRequireDefault(_InputGroup).default;
+	  }
+	});
+
+	var _Spinner = __webpack_require__(203);
+
+	Object.defineProperty(exports, 'Spinner', {
+	  enumerable: true,
+	  get: function get() {
+	    return _interopRequireDefault(_Spinner).default;
+	  }
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/***/ },
+/* 194 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	exports.Button = undefined;
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _classnames = __webpack_require__(176);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var _Button = __webpack_require__(195);
+
+	var _Button2 = _interopRequireDefault(_Button);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Button = function Button(_ref) {
+		var children = _ref.children;
+		var color = _ref.color;
+		var className = _ref.className;
+		var onClick = _ref.onClick;
+
+		var classes = (0, _classnames2.default)(_Button2.default.button, _Button2.default[color], className);
+
+		return _react2.default.createElement(
+			'button',
+			{ onClick: onClick, className: classes },
+			children
+		);
+	};
+
+	exports.Button = Button;
+
+/***/ },
+/* 195 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"button":"Button_button__2eI5YkfX","primary":"Button_primary__2beFstcw","transparent":"Button_transparent__P1gHp6V2","dark":"Button_dark__3R_AsDgf"};
+
+/***/ },
+/* 196 */,
+/* 197 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	exports.Input = undefined;
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _classnames = __webpack_require__(176);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var _Input = __webpack_require__(198);
+
+	var _Input2 = _interopRequireDefault(_Input);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Input = function Input(_ref) {
+		var inputRef = _ref.inputRef;
+		var value = _ref.value;
+		var placeholder = _ref.placeholder;
+		var _ref$type = _ref.type;
+		var type = _ref$type === undefined ? 'text' : _ref$type;
+		var className = _ref.className;
+		var onChange = _ref.onChange;
+
+		var classes = (0, _classnames2.default)(_Input2.default.input, _Input2.default[type], className);
+
+		return _react2.default.createElement('input', {
+			ref: inputRef,
+			defaultValue: value,
+			placeholder: placeholder,
+			type: type,
+			className: classes,
+			onChange: onChange });
+	};
+
+	exports.Input = Input;
+
+/***/ },
+/* 198 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"input":"Input_input__2kzmwH0j"};
+
+/***/ },
+/* 199 */,
+/* 200 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22048,7 +22499,233 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _Logo = __webpack_require__(193);
+	var _InputGroup = __webpack_require__(201);
+
+	var _InputGroup2 = _interopRequireDefault(_InputGroup);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var addClassNameToChild = function addClassNameToChild(child) {
+		var classes = (0, _classnames2.default)(_InputGroup2.default.item, child.type.name == 'Input' && _InputGroup2.default.input);
+
+		return _react2.default.cloneElement(child, { className: classes });
+	};
+
+	var InputGroup = function InputGroup(_ref) {
+		var children = _ref.children;
+		var className = _ref.className;
+
+		var classes = (0, _classnames2.default)(_InputGroup2.default.group, className);
+
+		return _react2.default.createElement(
+			'div',
+			{ className: (0, _classnames2.default)(classes) },
+			_react2.default.Children.map(children, addClassNameToChild)
+		);
+	};
+
+	exports.default = InputGroup;
+
+/***/ },
+/* 201 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"group":"InputGroup_group__1DfcfIvS","item":"InputGroup_item__t7t3bnrR","input":"InputGroup_input__1VMjpxlz"};
+
+/***/ },
+/* 202 */,
+/* 203 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Spinner = __webpack_require__(204);
+
+	var _Spinner2 = _interopRequireDefault(_Spinner);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Spinner = function Spinner() {
+		return _react2.default.createElement(
+			'div',
+			{ className: _Spinner2.default.spinner },
+			'Loading...'
+		);
+	};
+
+	exports.default = Spinner;
+
+/***/ },
+/* 204 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"spinner":"Spinner_spinner__S4h3meK7"};
+
+/***/ },
+/* 205 */,
+/* 206 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _classnames = __webpack_require__(176);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var _DemoInput = __webpack_require__(207);
+
+	var _DemoInput2 = _interopRequireDefault(_DemoInput);
+
+	var _elements = __webpack_require__(193);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var DemoInput = function DemoInput(_ref) {
+		var value = _ref.value;
+		var inputRef = _ref.inputRef;
+		var onButtonClick = _ref.onButtonClick;
+		return _react2.default.createElement(
+			'div',
+			{ className: (0, _classnames2.default)(_DemoInput2.default.container) },
+			_react2.default.createElement(
+				_elements.InputGroup,
+				null,
+				_react2.default.createElement(_elements.Input, {
+					placeholder: 'Your image URL',
+					value: value,
+					inputRef: inputRef }),
+				_react2.default.createElement(
+					_elements.Button,
+					{ color: 'dark', onClick: onButtonClick },
+					'Go'
+				)
+			)
+		);
+	};
+
+	exports.default = DemoInput;
+
+/***/ },
+/* 207 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"container":"DemoInput_container__1JEW0LrM"};
+
+/***/ },
+/* 208 */,
+/* 209 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _DemoOperations = __webpack_require__(210);
+
+	var _DemoOperations2 = _interopRequireDefault(_DemoOperations);
+
+	var _elements = __webpack_require__(193);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	// import cn from 'classnames'
+	var DemoOperations = function DemoOperations(_ref) {
+		var operations = _ref.operations;
+		var className = _ref.className;
+		return _react2.default.createElement(
+			'ul',
+			{ className: _DemoOperations2.default.container },
+			operations.map(function (group) {
+				return _react2.default.createElement(
+					'li',
+					{ className: _DemoOperations2.default.group },
+					_react2.default.createElement(
+						'span',
+						{ className: _DemoOperations2.default.groupName },
+						group.name
+					),
+					_react2.default.createElement(
+						'ul',
+						{ className: _DemoOperations2.default.groupOperations },
+						group.operations.map(function (operation) {
+							return _react2.default.createElement(
+								'li',
+								{ className: _DemoOperations2.default.operation },
+								_react2.default.createElement(
+									_elements.Button,
+									{ className: _DemoOperations2.default.button },
+									operation.name
+								)
+							);
+						})
+					)
+				);
+			})
+		);
+	};
+
+	exports.default = DemoOperations;
+
+/***/ },
+/* 210 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"container":"DemoOperations_container__2GQnQP9P","group":"DemoOperations_group__3EB-dP01","groupName":"DemoOperations_groupName__OY1rjhyh","groupOperations":"DemoOperations_groupOperations__2VseueVO","operation":"DemoOperations_operation__8zZsAZfG","button":"DemoOperations_button__MeCcR9bk","active":"DemoOperations_active__2UGZesR2"};
+
+/***/ },
+/* 211 */,
+/* 212 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"demoImageContainer":"Demo_demoImageContainer__2ko4pYuY","demoLinkHeading":"Demo_demoLinkHeading__36Rttekd","demoLink":"Demo_demoLink__3UcwjYjH","demoOperations":"Demo_demoOperations__1dw0x3cu"};
+
+/***/ },
+/* 213 */,
+/* 214 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _classnames = __webpack_require__(176);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var _Logo = __webpack_require__(215);
 
 	var _Logo2 = _interopRequireDefault(_Logo);
 
@@ -22066,15 +22743,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = Logo;
 
 /***/ },
-/* 193 */
+/* 215 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"logoContainer":"Logo_logoContainer__1RqAeRTo","logo":"Logo_logo__30kI9BuI"};
 
 /***/ },
-/* 194 */,
-/* 195 */
+/* 216 */,
+/* 217 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22091,7 +22768,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _PageHeading = __webpack_require__(196);
+	var _PageHeading = __webpack_require__(218);
 
 	var _PageHeading2 = _interopRequireDefault(_PageHeading);
 
@@ -22109,15 +22786,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = PageHeading;
 
 /***/ },
-/* 196 */
+/* 218 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"pageHeading":"PageHeading_pageHeading__2P1KI3Ee"};
 
 /***/ },
-/* 197 */,
-/* 198 */
+/* 219 */,
+/* 220 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22134,7 +22811,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _PageContent = __webpack_require__(199);
+	var _PageContent = __webpack_require__(221);
 
 	var _PageContent2 = _interopRequireDefault(_PageContent);
 
@@ -22152,7 +22829,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = PageContent;
 
 /***/ },
-/* 199 */
+/* 221 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin

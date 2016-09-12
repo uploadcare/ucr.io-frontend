@@ -1,11 +1,34 @@
 :root {
+  /* Base settings */
+  --base-size: 8px;
+  --base-column-width: calc(var(--base-size) * 5);
+  --base-gutter-width: calc(var(--base-size) * 2);
+  --base-radius: calc(var(--base-size) * 3);
+
   /* Layout */
-  --layout-max-width: 962px;
+  --layout-max-width: calc(var(--base-column-width) * 23);
 
   /* Colors */
+  --color-light: #fff;
+  --color-dark: #191919;
+  --color-yellow: #ffd800;
+  --color-light-yellow: #fef33c;
+  --color-dark-yellow: #ffc601;
+  --color-light-grey: #e7e7e7;
+
+  --color-gray--09: #e7e7e7;
+  --color-gray--15: #d8d8d8;
   --color-gray--25: #aab2bf;
   --color-gray--37: #a1a1a1;
+  --color-gray--52: #7b7b7b;
+  --color-gray--68: #514f4f;
+  --color-gray--75: #404040;
   --color-gray--90: #191919;
+
+  /* Helpers */
+  --animation-time: 150ms;
+  --hover-transition: background-color var(--animation-time) ease, color var(--animation-time) ease, border-color var(--animation-time) ease;
+  --max-z-index: 2147483647;
 }
 
 @custom-media --small-viewport (max-width: 680px);

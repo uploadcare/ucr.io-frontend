@@ -1,15 +1,7 @@
-@import 'config.pcss';
+@import 'custom-properties.pcss';
 
 .pageContent {
-  width: calc(100% - 32px);
-  margin: 0 auto;
+  --max-container-width: 600px;
 
-  @media (--medium-viewport) {
-	width: calc(100% - 80px);
-  }
-
-  @media (--large-viewport) {
-	width: 100%;
-	max-width: 600px;
-  }
+  @apply --container;
 }

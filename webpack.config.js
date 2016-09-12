@@ -3,6 +3,8 @@ const StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin'
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const path = require('path')
 
+const pathToElements = path.resolve(__dirname, 'app', 'src', 'elements')
+
 const paths = [
 	'/',
 ]
@@ -17,6 +19,7 @@ module.exports = {
 		path: 'dist',
 		libraryTarget: 'umd',
 	},
+	resolve: {alias: {elements: pathToElements}},
 	plugins: [
 		new StaticSiteGeneratorPlugin('main', paths),
 		new ExtractTextPlugin('[name].css'),
@@ -47,6 +50,7 @@ module.exports = {
 			path: path.join(__dirname, 'app', 'src'),
 		}),
 		require('postcss-custom-media'),
+		require('postcss-apply'),
 		require('postcss-nested'),
 		require('postcss-inline-svg')({path: 'assets/images/'}),
 		require('postcss-assets')({
