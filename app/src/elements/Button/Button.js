@@ -7,14 +7,19 @@ const Button = ({
 	color,
 	className,
 	onClick,
+	active,
 }) => {
 	const classes = cn(
 		styles.button,
 		styles[color],
-		className
+		className,
+		active && styles.active
 	)
 
-	return <button onClick={onClick} className={classes}>{children}</button>
+	return <button onClick={(e) => {
+		e.target.blur()
+		onClick()
+	}} className={classes}>{children}</button>
 }
 
 

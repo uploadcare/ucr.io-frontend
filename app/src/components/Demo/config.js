@@ -6,84 +6,42 @@ export default {
 			name: 'preview',
 		},
 		{
+			group: 'size',
+			title: 'resize',
 			name: 'resize',
 			value: 'x300',
 		},
 		{
+			group: 'effects',
+			title: 'enhance',
 			name: 'enhance',
 		},
 	],
-	operations: [
-		{
-			name: 'format',
-			operations: [
-				{
-					name: 'JPG',
-					modificator: {
-						name: 'format',
-						value: 'jpg',
-					},
-				},
-				{
-					name: 'PNG',
-					modificator: {
-						name: 'format',
-						value: 'png',
-					},
-				},
-			],
+	operations: {
+		format: {
+			JPG: {
+				name: 'format',
+				value: 'jpg',
+			},
+			PNG: {
+				name: 'format',
+				value: 'png',
+			},
 		},
-		{
-			name: 'quality',
-			operations: [
-				{
-					name: 'lightest',
-					modificator: {
-						name: 'quality',
-						value: 'lightest',
-					},
-				},
-				{
-					name: 'light',
-					modificator: {
-						name: 'quality',
-						value: 'light',
-					},
-				},
-			],
+		size: {
+			resize: {
+				name: 'resize',
+				value: 'x300',
+			},
+			crop: {
+				name: 'crop',
+				value: '300x300',
+				more: 'center',
+			},
 		},
-		{
-			name: 'size',
-			operations: [
-				{
-					name: 'resize',
-					modificator: {
-						name: 'resize',
-						value: 'x300',
-					},
-				},
-				{
-					name: 'crop',
-					modificator: {
-						name: 'crop',
-						value: '300x300',
-						more: 'center',
-					},
-				},
-			],
+		effects: {
+			enhance: {name: 'enhance'},
+			grayscale: {name: 'grayscale'},
 		},
-		{
-			name: 'effects',
-			operations: [
-				{
-					name: 'enhance',
-					modificator: {name: 'enhance'},
-				},
-				{
-					name: 'grayscale',
-					modificator: {name: 'grayscale'},
-				},
-			],
-		},
-	],
+	},
 }
